@@ -393,7 +393,7 @@ main {
   width: 96px;
   height: 96px;
   object-fit: contain;
-  margin-bottom: 1rem;
+  margin: 0 auto;
 }
 
 .footer-remi-guillette,
@@ -408,6 +408,14 @@ main {
 .footer-remi-guillette,
 .footer-group-line {
   font-weight: 700;
+}
+
+.footer-brand {
+  text-align: center;
+}
+
+.footer-wordmark {
+  margin-bottom: 0.8rem;
 }
 
 .footer-links {
@@ -435,6 +443,12 @@ main {
 
 .footer-registration p {
   color: #f89422;
+}
+
+.footer-title {
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
 }
 
 .footer-contact-button.border-gradient-button {
@@ -482,6 +496,11 @@ main {
   .footer-grid {
     grid-template-columns: 1.2fr 1fr 1fr 1fr;
     align-items: start;
+  }
+
+  .footer-contact,
+  .footer-registration {
+    text-align: right;
   }
 }
 

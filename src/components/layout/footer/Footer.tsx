@@ -1,52 +1,52 @@
 import { Link } from "react-router-dom";
 import beaverLogo from "../../../assets/beaver.png";
+import { useTranslation } from "../../../contexts/TranslationContext";
 
 export const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="site-footer" role="contentinfo">
       <div className="container footer-grid">
         <section className="footer-brand" aria-label="Identité de l’entreprise">
-          <img
-            src={beaverLogo}
-            alt="Logo Rémi Guillette Groupe / Group"
-            className="footer-logo"
-          />
-
           <div className="footer-wordmark">
             <p className="footer-remi-guillette">
-              <span className="accent-blue">Rémi</span>{" "}
-              <span className="accent-orange">Guillette</span>
+              <span className="accent-blue">{t("footer.brand.remi")}</span>{" "}
+              <span className="accent-orange">{t("footer.brand.guillette")}</span>
             </p>
-            <p className="accent-orange footer-group-line">Groupe</p>
-            <p className="accent-orange footer-group-line">Group</p>
+            <p className="accent-orange footer-group-line">{t("footer.brand.group")}</p>
           </div>
+
+          <img src={beaverLogo} alt={t("footer.brand.logoAlt")} className="footer-logo" />
         </section>
 
         <nav className="footer-links" aria-label="Liens de pied de page">
-          <Link to="/privacy-policy">
-            Politique de confidentialité / Privacy Policy
-          </Link>
+          <Link to="/privacy-policy">{t("footer.links.privacyPolicy")}</Link>
           <Link to="/contact" className="border-gradient-button footer-contact-button">
-            Contact / Contact
+            {t("footer.links.contactButton")}
           </Link>
         </nav>
 
         <address className="footer-contact">
-          <p>6388 Hawkins Street, Apt. 307</p>
-          <p>Niagara Falls, ON L2G 1P3</p>
+          <p className="footer-title">{t("footer.contact.title")}</p>
+          <p>{t("footer.contact.line1")}</p>
+          <p>{t("footer.contact.line2")}</p>
+          <p>{t("footer.contact.line3")}</p>
+          <p>{t("footer.contact.line4")}</p>
           <p>
-            <a href="tel:6135012160">613 501-2160</a>
-          </p>
-          <p>
-            <a href="mailto:info@remiguillette.ca">info@remiguillette.ca</a>
+            {t("footer.contact.phoneLabel")}: <a href="tel:6135012160">613-501-2160</a>
           </p>
         </address>
 
         <section className="footer-registration" aria-label="Enregistrements">
-          <p>Enregistrement Ontario / Ontario Registration</p>
-          <p>Enregistrement Canada / Canada Registration</p>
-          <p>[numéro Ontario]</p>
-          <p>[numéro Canada]</p>
+          <p className="footer-title">{t("footer.social.title")}</p>
+          <p>{t("footer.registration.ontarioFr")}</p>
+          <p>{t("footer.registration.ontarioEn")}</p>
+          <p>{t("footer.registration.canadaFr")}</p>
+          <p>{t("footer.registration.canadaEn")}</p>
+          <p>1001174676</p>
+          <p>1001174693</p>
+          <p>725808273</p>
         </section>
       </div>
     </footer>
