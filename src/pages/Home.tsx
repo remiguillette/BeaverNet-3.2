@@ -2,8 +2,15 @@ import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
 import { servicePages } from "../data/servicePages";
+import { useTranslation } from "../contexts/TranslationContext";
 
 export default function Home() {
+  const { t } = useTranslation();
+  const text = (key: string, fallback: string) => {
+    const value = t(key);
+    return value === key ? fallback : value;
+  };
+
   return (
     <>
       <Header />
@@ -11,13 +18,17 @@ export default function Home() {
         <section className="hero">
           <div className="container">
             <h1>
-              <span className="accent-blue">Solutions</span>{" "}
-              <span className="accent-orange">innovantes pour votre entreprise</span>
+              <span className="accent-blue">{text("home.hero.titleLead", "Innovative")}</span>{" "}
+              <span className="accent-orange">{text("home.hero.titleAccent", "solutions for your business")}</span>
             </h1>
 
             <p className="hero-text">
-              Spécialiste en services d&apos;entreprise, le Groupe Rémi Guillette offre
-              une gamme de solutions adaptées à vos besoins.
+              <span className="accent-orange">
+                {text(
+                  "home.hero.description",
+                  "Specializing in business services, the Rémi Guillette Group offers a range of solutions tailored to your needs.",
+                )}
+              </span>
             </p>
           </div>
         </section>
