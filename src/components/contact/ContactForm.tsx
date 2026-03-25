@@ -27,11 +27,11 @@ export function ContactForm() {
   }, []);
 
   return (
-    <div className="bg-black rounded-2xl p-8 border-2 border-primary">
+    <div className="contact-form-card bg-black rounded-2xl p-8 border-2 border-primary">
       <h2 className="text-2xl font-bold mb-6 text-primary">{text("contact.form.title", "Send us a message")}</h2>
 
-      <form onSubmit={handleSubmit}>
-        <div className="grid md:grid-cols-2 gap-6 mb-6">
+      <form onSubmit={handleSubmit} className="contact-form-grid">
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
             <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-primary">
               {text("contact.form.firstName", "First Name")}
@@ -40,10 +40,12 @@ export function ContactForm() {
               id="firstName"
               name="firstName"
               type="text"
+              autoComplete="given-name"
               value={formData.firstName}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+              className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
               placeholder={text("contact.form.firstNamePlaceholder", "First name")}
+              required
             />
           </div>
 
@@ -55,39 +57,44 @@ export function ContactForm() {
               id="lastName"
               name="lastName"
               type="text"
+              autoComplete="family-name"
               value={formData.lastName}
               onChange={handleInputChange}
-              className="w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+              className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
               placeholder={text("contact.form.lastNamePlaceholder", "Last name")}
+              required
             />
           </div>
         </div>
 
-        <div className="mb-6">
+        <div>
           <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary">
-            {text("contact.form.email", "Email")}
+            {text("contact.form.email", "Email Address")}
           </label>
           <input
             id="email"
             name="email"
             type="email"
+            autoComplete="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
-            placeholder="you@email.com"
+            className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+            placeholder={text("contact.form.emailPlaceholder", "you@email.com")}
+            required
           />
         </div>
 
-        <div className="mb-6">
+        <div>
           <label htmlFor="service" className="block text-sm font-medium mb-2 text-primary">
-            {text("contact.form.service", "Service")}
+            {text("contact.form.service", "Service of Interest")}
           </label>
           <select
             id="service"
             name="service"
             value={formData.service}
             onChange={handleInputChange}
-            className="w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+            className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+            required
           >
             <option value="">{text("contact.form.selectService", "Select a service")}</option>
             <option value="public-safety">{text("contact.form.services.publicSafety", "Public Safety")}</option>
@@ -97,7 +104,7 @@ export function ContactForm() {
           </select>
         </div>
 
-        <div className="mb-6">
+        <div>
           <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary">
             {text("contact.form.message", "Message")}
           </label>
@@ -107,8 +114,9 @@ export function ContactForm() {
             rows={5}
             value={formData.message}
             onChange={handleInputChange}
-            className="w-full px-4 py-4 bg-black border-2 border-primary rounded-lg text-white resize-none"
+            className="contact-form-field w-full px-4 py-4 bg-black border-2 border-primary rounded-lg text-white resize-none"
             placeholder={text("contact.form.messagePlaceholder", "How can we help you?")}
+            required
           />
         </div>
 
@@ -118,7 +126,7 @@ export function ContactForm() {
           <input type="tel" name="phone_hidden" tabIndex={-1} autoComplete="off" />
         </div>
 
-        <div className="mb-6 flex justify-center">
+        <div className="flex justify-center">
           <div className="text-primary text-center text-sm flex flex-col items-center">
             <div className="flex items-center gap-2 mb-1">
               <Shield size={16} aria-hidden="true" />
@@ -128,7 +136,7 @@ export function ContactForm() {
         </div>
 
         {feedback && (
-          <p className={feedback.type === "error" ? "text-red-500 mb-4" : "text-green-500 mb-4"}>{feedback.message}</p>
+          <p className={feedback.type === "error" ? "text-red-500" : "text-green-500"}>{feedback.message}</p>
         )}
 
         <button

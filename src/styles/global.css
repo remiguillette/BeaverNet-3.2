@@ -229,6 +229,25 @@ footer {
   cursor: pointer;
 }
 
+.contact-form-card {
+  width: 100%;
+}
+
+.contact-form-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.contact-form-field {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-field:focus-visible {
+  outline: none;
+  border-color: #f89422;
+  box-shadow: 0 0 0 3px rgba(248, 148, 34, 0.2);
+}
+
 .site-footer {
   background: #000;
   color: #fff;
