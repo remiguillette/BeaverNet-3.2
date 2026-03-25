@@ -23,7 +23,7 @@ export default function Contact() {
             </p>
           </header>
 
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-start">
             <section className="space-y-8">
               <div className="bg-black rounded-2xl p-8 border-2 border-primary">
                 <h2 className="text-2xl font-bold mb-6 text-primary">{text("contact.info", "Contact information")}</h2>
@@ -39,7 +39,9 @@ export default function Contact() {
               </div>
             </section>
 
-            <ContactForm />
+            <section>
+              <ContactForm />
+            </section>
           </div>
         </div>
       </main>
