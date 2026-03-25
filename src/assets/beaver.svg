@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Beaver logo">
+  <rect width="120" height="120" rx="24" fill="#111"/>
+  <circle cx="60" cy="58" r="34" fill="#f89422"/>
+  <circle cx="47" cy="52" r="4" fill="#111"/>
+  <circle cx="73" cy="52" r="4" fill="#111"/>
+  <rect x="44" y="66" width="32" height="16" rx="6" fill="#0d6efd"/>
+</svg>
