@@ -2,6 +2,35 @@ export type Language = "fr" | "en";
 
 export const resources = {
   en: {
+    footer: {
+      brand: {
+        logoAlt: "Stylized beaver logo for Rémi Guillette Group",
+        remi: "Rémi",
+        guillette: "Guillette",
+        group: "Group",
+      },
+      links: {
+        privacyPolicy: "Privacy Policy",
+        contactButton: "Contact Us",
+      },
+      contact: {
+        title: "Contact",
+        line1: "6388 Hawkins Street",
+        line2: "Apt. 307",
+        line3: "Niagara Falls, Ontario",
+        line4: "L2G 1P3",
+        phoneLabel: "Phone",
+      },
+      social: {
+        title: "Suivez-nous / Follow Us",
+      },
+      registration: {
+        ontarioFr: "Enregistrement Ontario",
+        ontarioEn: "Ontario Registration",
+        canadaFr: "Enregistrement Canada",
+        canadaEn: "Canada Registration",
+      },
+    },
     home: {
       hero: {
         titleLead: "Innovative",
@@ -39,6 +68,35 @@ export const resources = {
     },
   },
   fr: {
+    footer: {
+      brand: {
+        logoAlt: "Logo castor stylisé du Groupe Rémi Guillette",
+        remi: "Rémi",
+        guillette: "Guillette",
+        group: "Groupe",
+      },
+      links: {
+        privacyPolicy: "Politique de confidentialité",
+        contactButton: "Contactez-nous",
+      },
+      contact: {
+        title: "Contact",
+        line1: "6388 rue Hawkins",
+        line2: "App. 307",
+        line3: "Niagara Falls, Ontario",
+        line4: "L2G 1P3",
+        phoneLabel: "Téléphone",
+      },
+      social: {
+        title: "Suivez-nous / Follow Us",
+      },
+      registration: {
+        ontarioFr: "Enregistrement Ontario",
+        ontarioEn: "Ontario Registration",
+        canadaFr: "Enregistrement Canada",
+        canadaEn: "Canada Registration",
+      },
+    },
     home: {
       hero: {
         titleLead: "Solutions",
