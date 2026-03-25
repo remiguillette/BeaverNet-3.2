@@ -9,7 +9,7 @@ export const OntarioPrideText = ({
 }: OntarioPrideTextProps) => {
   return (
     <span
-      className="ontario-pride-text"
+      className="ontario-pride-text is-animated"
       lang={lang}
       aria-label={text}
     >

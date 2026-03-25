@@ -144,8 +144,55 @@ footer {
 }
 
 .ontario-pride-text {
-  color: #fff;
+  font-weight: 700;
+  font-size: 1rem;
+  color: #f89422;
   white-space: nowrap;
+}
+
+@supports ((background-clip: text) or (-webkit-background-clip: text)) {
+  .ontario-pride-text.is-animated {
+    background-image: linear-gradient(
+      90deg,
+      #00693c 45%,
+      #ffffff 50%,
+      #00693c 55%
+    );
+    background-size: 400% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation:
+      ontario-wave-effect 3s linear infinite,
+      ontario-color-cycle 12s linear infinite;
+  }
+}
+
+@keyframes ontario-wave-effect {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 400% 50%;
+  }
+}
+
+@keyframes ontario-color-cycle {
+  0%,
+  65% {
+    filter: none;
+  }
+
+  75%,
+  90% {
+    filter: hue-rotate(-35deg) saturate(1.3);
+  }
+
+  100% {
+    filter: none;
+  }
 }
 
 .border-gradient-button {
@@ -232,6 +279,15 @@ footer {
   .header-group-fr,
   .header-group-en {
     opacity: 1 !important;
+  }
+
+  .ontario-pride-text,
+  .ontario-pride-text.is-animated {
+    animation: none !important;
+    background-image: none !important;
+    color: #f89422 !important;
+    -webkit-text-fill-color: #f89422 !important;
+    filter: none !important;
   }
 }
 
