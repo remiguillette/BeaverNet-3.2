@@ -24,6 +24,11 @@ export const resources = {
       social: {
         title: "Suivez-nous / Follow Us",
       },
+      aria: {
+        companyIdentity: "Company identity",
+        footerNav: "Footer navigation links",
+        registrations: "Business registrations",
+      },
       registration: {
         ontarioFr: "Enregistrement Ontario",
         ontarioEn: "Ontario Registration",
@@ -89,6 +94,11 @@ export const resources = {
       },
       social: {
         title: "Suivez-nous / Follow Us",
+      },
+      aria: {
+        companyIdentity: "Identité de l’entreprise",
+        footerNav: "Liens de navigation du pied de page",
+        registrations: "Enregistrements de l’entreprise",
       },
       registration: {
         ontarioFr: "Enregistrement Ontario",
