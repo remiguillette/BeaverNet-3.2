@@ -1,12 +1,20 @@
 import Header from "./layout/Header";
 import Footer from "./layout/Footer";
 import type { ServicePageData } from "../data/servicePages";
+import { useTranslation } from "../contexts/TranslationContext";
 
 type ServicePageTemplateProps = {
   service: ServicePageData;
 };
 
 export default function ServicePageTemplate({ service }: ServicePageTemplateProps) {
+  const { t } = useTranslation();
+  const text = (key: string, fallback: string) => {
+    const value = t(key);
+
+    return value === key ? fallback : value;
+  };
+
   return (
     <>
       <Header />
@@ -20,7 +28,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
         <section className="service-section">
           <div className="container">
-            <h2>Nos services</h2>
+            <h2>{text("servicePage.sections.services", "Nos services")}</h2>
             <div className="service-card-grid">
               {service.cards.map((card) => (
                 <article key={card.title} className="service-detail-card">
@@ -49,7 +57,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
         <section className="service-legal">
           <div className="container">
-            <h2>Information légale</h2>
+            <h2>{text("servicePage.sections.legal", "Information légale")}</h2>
             <p>{service.legalText}</p>
           </div>
         </section>
