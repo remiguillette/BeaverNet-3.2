@@ -38,13 +38,16 @@ export const Footer = () => {
   return (
     <footer className="bg-black py-12 w-full text-white" role="contentinfo" style={{ backgroundColor: "#000", color: "#fff" }}>
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-stretch">
           
           {/* Colonne 1 : Vide pour préserver l'alignement sur écran large */}
-          <div className="hidden md:block"></div>
+          <div className="hidden md:block" aria-hidden="true"></div>
 
           {/* Colonne 2 : Identité de marque et Navigation */}
-          <div className="flex flex-col items-center text-center max-w-[300px] mx-auto" aria-label={t("footer.aria.companyIdentity")}>
+          <div
+            className="flex flex-col items-center justify-center text-center max-w-[320px] mx-auto min-h-full"
+            aria-label={t("footer.aria.companyIdentity")}
+          >
             <a 
               href="https://rgbeavernet.ca/"
               target="_blank"
@@ -83,7 +86,10 @@ export const Footer = () => {
           </div>
 
           {/* Colonne 3 : Informations de contact et enregistrements */}
-          <section className="flex flex-col gap-8" aria-labelledby="contact-heading">
+          <section
+            className="flex flex-col gap-8 w-full max-w-[420px] md:ml-auto text-left"
+            aria-labelledby="contact-heading"
+          >
             
             {/* Contact */}
             <address className="not-italic text-[#f89422]" style={{ color: accentOrange }}>
