@@ -69,7 +69,11 @@ export const Footer = () => {
               Group
             </h3>
 
-            
+            <nav className="mt-4" aria-label={t("footer.aria.footerNav")}>
+              <Link
+                to="/privacy-policy"
+                className="text-[#f89422] hover:text-white transition-colors underline-offset-4 hover:underline"
+              >
                 {t("footer.links.privacyPolicy")}
               </Link>
             </nav>
