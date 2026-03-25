@@ -28,8 +28,10 @@ footer {
 }
 
 .site-header-inner {
-  width: min(1100px, 92%);
+  width: 100%;
+  max-width: none;
   margin: 0 auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
   display: flex;
   align-items: center;
   justify-content: space-between;
