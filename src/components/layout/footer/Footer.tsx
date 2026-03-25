@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import beaverLogo from "../../../assets/beaver.png";
+import beaverLogo from "../../../assets/beaver.svg";
 import { useTranslation } from "../../../contexts/TranslationContext";
 
 export const Footer = () => {
