@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useTranslation } from "../../../contexts/TranslationContext";
-import beaverLogo from "../../../assets/beaver.svg";
+import beaverLogo from "../../../assets/beaver.png";
 
 import { HeaderBrand } from "./HeaderBrand";
 import { HeaderNav } from "./HeaderNav";
