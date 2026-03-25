@@ -1,44 +1,10 @@
 import { createContext, useContext, useMemo, useState, type ReactNode } from "react";
-
-type Language = "fr" | "en";
+import { resources, type Language } from "../i18n/resources";
 
 type TranslationContextType = {
   language: Language;
   changeLanguage: (language: Language) => void;
   t: (key: string) => string;
-};
-
-const resources = {
-  en: {
-    header: {
-      brand: {
-        homeAria: "Home - Rémi Guillette Group",
-        logoAlt: "Stylized illustration of an orange beaver representing the company's visual identity",
-        groupFr: "Groupe",
-        groupEn: "Group",
-      },
-      nav: {
-        mainAria: "Main menu",
-        ontarioPride: "Proud of Ontario",
-        languageToggleAria: "Change language to French",
-      },
-    },
-  },
-  fr: {
-    header: {
-      brand: {
-        homeAria: "Accueil - Groupe Rémi Guillette",
-        logoAlt: "Illustration stylisée d'un castor orange représentant l'identité visuelle de l'entreprise",
-        groupFr: "Groupe",
-        groupEn: "Group",
-      },
-      nav: {
-        mainAria: "Menu principal",
-        ontarioPride: "Fier de l'Ontario",
-        languageToggleAria: "Changer la langue en anglais",
-      },
-    },
-  },
 };
 
 const TranslationContext = createContext<TranslationContextType | null>(null);

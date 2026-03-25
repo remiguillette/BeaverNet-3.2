@@ -6,8 +6,11 @@ type HeaderBrandProps = {
   logoSrc: string;
   homeAriaLabel: string;
   logoAlt: string;
+  remi: string;
+  guillette: string;
   groupFr: string;
   groupEn: string;
+  businessInfo: string;
 };
 
 export const HeaderBrand = ({
@@ -15,8 +18,11 @@ export const HeaderBrand = ({
   logoSrc,
   homeAriaLabel,
   logoAlt,
+  remi,
+  guillette,
   groupFr,
   groupEn,
+  businessInfo,
 }: HeaderBrandProps) => {
   return (
     <Link to="/" className="header-brand-link" aria-label={homeAriaLabel}>
@@ -26,7 +32,14 @@ export const HeaderBrand = ({
         className={`header-logo ${isLoaded ? "is-loaded" : "is-hidden-scale"}`}
       />
 
-      <BrandWordmark isLoaded={isLoaded} groupFr={groupFr} groupEn={groupEn} />
+      <BrandWordmark
+        isLoaded={isLoaded}
+        remi={remi}
+        guillette={guillette}
+        groupFr={groupFr}
+        groupEn={groupEn}
+        businessInfo={businessInfo}
+      />
     </Link>
   );
 };
