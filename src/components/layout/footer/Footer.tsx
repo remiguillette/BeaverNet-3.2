@@ -8,6 +8,8 @@ import { useTranslation } from "../../../contexts/TranslationContext";
 export const Footer = () => {
   const { t, language } = useTranslation();
   const contactButtonRef = useRef<HTMLAnchorElement>(null);
+  const accentOrange = "#f89422";
+  const accentBlue = "#0d6efd";
 
   // Animation pour la bordure gradient du bouton "Contact Us"
   useEffect(() => {
@@ -34,7 +36,7 @@ export const Footer = () => {
   }, []);
 
   return (
-    <footer className="bg-black py-12 w-full text-white" role="contentinfo">
+    <footer className="bg-black py-12 w-full text-white" role="contentinfo" style={{ backgroundColor: "#000", color: "#fff" }}>
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 items-start">
           
@@ -54,18 +56,18 @@ export const Footer = () => {
                 src={beaverLogo} 
                 alt={t("footer.brand.logoAlt")} 
                 className="h-32 w-32 mb-6"
-                style={{ objectFit: "contain" }}
+                style={{ objectFit: "contain", width: "180px", height: "180px", maxWidth: "45vw" }}
               />
             </a>
             
             <h3 className="font-bold text-2xl mb-2 tracking-tight">
-              <span className="text-[#0d6efd]">{t("footer.brand.remi")}</span>{" "}
-              <span className="text-[#f89422]">{t("footer.brand.guillette")}</span>
+              <span className="text-[#0d6efd]" style={{ color: accentBlue }}>{t("footer.brand.remi")}</span>{" "}
+              <span className="text-[#f89422]" style={{ color: accentOrange }}>{t("footer.brand.guillette")}</span>
             </h3>
-            <h3 className="font-bold text-2xl mb-2 text-[#f89422]">
+            <h3 className="font-bold text-2xl mb-2 text-[#f89422]" style={{ color: accentOrange }}>
               Groupe
             </h3>
-            <h3 className="font-bold text-2xl mb-2 text-[#f89422]">
+            <h3 className="font-bold text-2xl mb-2 text-[#f89422]" style={{ color: accentOrange }}>
               Group
             </h3>
 
@@ -73,6 +75,7 @@ export const Footer = () => {
               <Link
                 to="/privacy-policy"
                 className="text-[#f89422] hover:text-white transition-colors underline-offset-4 hover:underline"
+                style={{ color: accentOrange }}
               >
                 {t("footer.links.privacyPolicy")}
               </Link>
@@ -83,8 +86,8 @@ export const Footer = () => {
           <section className="flex flex-col gap-8" aria-labelledby="contact-heading">
             
             {/* Contact */}
-            <address className="not-italic text-[#f89422]">
-              <h3 id="contact-heading" className="font-bold text-xl mb-4 text-[#f89422]">
+            <address className="not-italic text-[#f89422]" style={{ color: accentOrange }}>
+              <h3 id="contact-heading" className="font-bold text-xl mb-4 text-[#f89422]" style={{ color: accentOrange }}>
                 {t("footer.contact.title")}
               </h3>
               <div className="space-y-2 text-sm mb-4">
@@ -95,7 +98,7 @@ export const Footer = () => {
                 <p className="flex items-center pt-2">
                   <Phone className="w-4 h-4 mr-2" aria-hidden="true" />
                   <span className="sr-only">{t("footer.contact.phoneLabel")}: </span>
-                  <a href="tel:6135012160" className="hover:text-white transition-colors">613-501-2160</a>
+                  <a href="tel:6135012160" className="hover:text-white transition-colors" style={{ color: accentOrange }}>613-501-2160</a>
                 </p>
               </div>
               
@@ -112,17 +115,17 @@ export const Footer = () => {
 
             {/* Réseaux Sociaux */}
             <div>
-              <h4 className="font-bold text-lg mb-3 text-[#f89422]">
+              <h4 className="font-bold text-lg mb-3 text-[#f89422]" style={{ color: accentOrange }}>
                 {t("footer.social.title")}
               </h4>
               <div className="flex gap-4">
-                <a href="https://x.com/RGRA_ON" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" aria-label="X (Twitter)">
+                <a href="https://x.com/RGRA_ON" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" style={{ color: accentOrange }} aria-label="X (Twitter)">
                   <SiX className="w-6 h-6" />
                 </a>
-                <a href="https://www.instagram.com/rgra_on" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" aria-label="Instagram">
+                <a href="https://www.instagram.com/rgra_on" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" style={{ color: accentOrange }} aria-label="Instagram">
                   <SiInstagram className="w-6 h-6" />
                 </a>
-                <a href="https://discord.gg/qFbVDPCFz9" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" aria-label="Discord">
+                <a href="https://discord.gg/qFbVDPCFz9" target="_blank" rel="noopener noreferrer" className="text-[#f89422] hover:text-white transition-colors" style={{ color: accentOrange }} aria-label="Discord">
                   <SiDiscord className="w-6 h-6" />
                 </a>
               </div>
@@ -131,13 +134,13 @@ export const Footer = () => {
             {/* Numéros d'enregistrement */}
             <div className="border-t border-[#f89422]/50 pt-4">
               <div className="grid grid-cols-2 gap-4 text-sm">
-                <div className="text-left text-[#f89422] space-y-2">
+                <div className="text-left text-[#f89422] space-y-2" style={{ color: accentOrange }}>
                   <p>{t("footer.registration.ontarioFr")}</p>
                   <p>{t("footer.registration.ontarioEn")}</p>
                   <p className="pt-2">{t("footer.registration.canadaFr")}</p>
                   <p>{t("footer.registration.canadaEn")}</p>
                 </div>
-                <div className="text-right text-[#f89422] flex flex-col space-y-2 font-mono">
+                <div className="text-right text-[#f89422] flex flex-col space-y-2 font-mono" style={{ color: accentOrange }}>
                   <p>1001174676</p>
                   <p>1001174693</p>
                   <div className="flex-1 flex items-end justify-end">
