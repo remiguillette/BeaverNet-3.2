@@ -5,7 +5,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <main>
+      <main className="page-content">
         <h1>À propos</h1>
         <p>Cette page présente le projet Website v3.2.</p>
       </main>
