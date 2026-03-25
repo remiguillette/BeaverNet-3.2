@@ -5,7 +5,7 @@ export default function Contact() {
   return (
     <>
       <Header />
-      <main>
+      <main className="page-content">
         <h1>Contact</h1>
         <p>Vous pouvez nous écrire via contact@example.com.</p>
       </main>
