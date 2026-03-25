@@ -54,6 +54,12 @@ export const resources = {
         },
       },
     },
+    servicePage: {
+      sections: {
+        services: "Our services",
+        legal: "Legal information",
+      },
+    },
     header: {
       brand: {
         homeAria: "Home - Rémi Guillette Group",
@@ -123,6 +129,12 @@ export const resources = {
           healthSafety: "Services en santé et sécurité au travail (SST)",
           animalFirstAid: "Services de premiers soins animaliers",
         },
+      },
+    },
+    servicePage: {
+      sections: {
+        services: "Nos services",
+        legal: "Information légale",
       },
     },
     header: {
