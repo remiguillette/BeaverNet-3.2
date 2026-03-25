@@ -9,6 +9,16 @@ export const resources = {
         description:
           "Specializing in business services, the Rémi Guillette Group offers a range of solutions tailored to your needs.",
       },
+      sectors: {
+        title: "Business sectors",
+        viewAriaPrefix: "View",
+        items: {
+          publicSafety: "Public safety consulting",
+          francophoneServices: "Francophone community services",
+          healthSafety: "Workplace health and safety services",
+          animalFirstAid: "Animal first aid services",
+        },
+      },
     },
     header: {
       brand: {
@@ -35,6 +45,16 @@ export const resources = {
         titleAccent: "innovantes pour votre entreprise",
         description:
           "Spécialiste en services d'entreprise, le Groupe Rémi Guillette offre une gamme de solutions adaptées à vos besoins.",
+      },
+      sectors: {
+        title: "Secteurs d'activité",
+        viewAriaPrefix: "Voir",
+        items: {
+          publicSafety: "Cabinet-conseil en sécurité publique",
+          francophoneServices: "Services communautaires francophones",
+          healthSafety: "Services en santé et sécurité au travail (SST)",
+          animalFirstAid: "Services de premiers soins animaliers",
+        },
       },
     },
     header: {

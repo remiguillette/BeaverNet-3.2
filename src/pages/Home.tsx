@@ -10,6 +10,21 @@ export default function Home() {
     const value = t(key);
     return value === key ? fallback : value;
   };
+  const renderFirstWordBlue = (value: string) => {
+    const [firstWord, ...remainingWords] = value.trim().split(/\s+/);
+
+    return (
+      <>
+        <span className="accent-blue">{firstWord}</span>
+        {remainingWords.length > 0 ? (
+          <>
+            {" "}
+            <span className="accent-orange">{remainingWords.join(" ")}</span>
+          </>
+        ) : null}
+      </>
+    );
+  };
 
   return (
     <>
@@ -35,21 +50,25 @@ export default function Home() {
 
         <section className="sectors">
           <div className="container">
-            <h2>Secteurs d&apos;activité</h2>
+            <h2>{renderFirstWordBlue(text("home.sectors.title", "Business sectors"))}</h2>
 
             <div className="card-grid">
               {servicePages.map((servicePage) => {
                 const Icon = servicePage.homeIcon;
+                const translatedTitle = text(
+                  `home.sectors.items.${servicePage.key}`,
+                  servicePage.homeTitle,
+                );
 
                 return (
                   <Link
                     key={servicePage.path}
                     to={servicePage.path}
-                    className="sector-card"
-                    aria-label={`Voir ${servicePage.homeTitle}`}
+                    className="sector-card accent-orange-card"
+                    aria-label={`${text("home.sectors.viewAriaPrefix", "View")} ${translatedTitle}`}
                   >
-                    <Icon className="sector-icon" aria-hidden="true" />
-                    <h3>{servicePage.homeTitle}</h3>
+                    <Icon className="sector-icon accent-orange" aria-hidden="true" />
+                    <h3>{renderFirstWordBlue(translatedTitle)}</h3>
                   </Link>
                 );
               })}
