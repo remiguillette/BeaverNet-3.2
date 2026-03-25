@@ -5,17 +5,19 @@ type BrandWordmarkProps = {
 };
 
 export const BrandWordmark = ({ isLoaded, groupFr, groupEn }: BrandWordmarkProps) => {
+  const stateClass = isLoaded ? "is-loaded" : "is-preload";
+
   return (
-    <div className="header-wordmark">
+    <div className="header-wordmark" aria-label={`Rémi Guillette, ${groupFr}, ${groupEn}`}>
       <div className="header-wordmark-row">
-        <span className={`header-remi ${isLoaded ? "is-loaded" : "is-hidden-left"}`}>Rémi</span>
-        <span className={`header-guillette ${isLoaded ? "is-loaded" : "is-hidden-right"}`}>
-          Guillette
-        </span>
+        <span className={`header-remi ${stateClass}`}>Rémi</span>
+        <span className={`header-guillette ${stateClass}`}>Guillette</span>
       </div>
 
-      <p className={`header-group-fr ${isLoaded ? "is-loaded" : "is-hidden-up"}`}>{groupFr}</p>
-      <p className={`header-group-en ${isLoaded ? "is-loaded" : "is-hidden-up"}`}>{groupEn}</p>
+      <div className="header-group-lines">
+        <p className={`header-group-fr ${stateClass}`}>{groupFr}</p>
+        <p className={`header-group-en ${stateClass}`}>{groupEn}</p>
+      </div>
     </div>
   );
 };
