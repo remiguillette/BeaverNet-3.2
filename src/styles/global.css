@@ -1,3 +1,7 @@
+:root {
+  --accent-orange: #f89422;
+}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -86,7 +90,7 @@ footer {
 .header-guillette,
 .header-group-fr,
 .header-group-en {
-  color: #f89422;
+  color: var(--accent-orange);
 }
 
 .header-group-fr,
@@ -254,7 +258,7 @@ footer {
 }
 
 .accent-orange {
-  color: #f89422;
+  color: var(--accent-orange);
 }
 
 .sectors {
@@ -263,7 +267,7 @@ footer {
 
 .sectors h2 {
   text-align: center;
-  color: #f89422;
+  color: var(--accent-orange);
   margin-bottom: 2rem;
   font-size: 2rem;
 }
@@ -299,8 +303,8 @@ footer {
   .ontario-pride-text.is-animated {
     animation: none !important;
     background-image: none !important;
-    color: #f89422 !important;
-    -webkit-text-fill-color: #f89422 !important;
+    color: var(--accent-orange) !important;
+    -webkit-text-fill-color: var(--accent-orange) !important;
     filter: none !important;
   }
 }

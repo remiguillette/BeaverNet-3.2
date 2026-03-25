@@ -2,6 +2,14 @@ export type Language = "fr" | "en";
 
 export const resources = {
   en: {
+    home: {
+      hero: {
+        titleLead: "Innovative",
+        titleAccent: "solutions for your business",
+        description:
+          "Specializing in business services, the Rémi Guillette Group offers a range of solutions tailored to your needs.",
+      },
+    },
     header: {
       brand: {
         homeAria: "Home - Rémi Guillette Group",
@@ -21,6 +29,14 @@ export const resources = {
     },
   },
   fr: {
+    home: {
+      hero: {
+        titleLead: "Solutions",
+        titleAccent: "innovantes pour votre entreprise",
+        description:
+          "Spécialiste en services d'entreprise, le Groupe Rémi Guillette offre une gamme de solutions adaptées à vos besoins.",
+      },
+    },
     header: {
       brand: {
         homeAria: "Accueil - Groupe Rémi Guillette",
