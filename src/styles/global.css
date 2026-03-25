@@ -588,3 +588,62 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
+
+.privacy-page {
+  padding-bottom: 3rem;
+}
+
+.privacy-hero {
+  padding: clamp(2rem, 6vw, 4rem) 0 1.25rem;
+  text-align: center;
+}
+
+.privacy-hero h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(1.8rem, 4.5vw, 3rem);
+}
+
+.privacy-hero p {
+  margin: 0;
+  color: #f89422;
+  font-weight: 700;
+}
+
+.privacy-sections {
+  padding: 1.2rem 0 2rem;
+}
+
+.privacy-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.privacy-card {
+  background: #0a0a0a;
+  border: 1px solid #f89422;
+  border-radius: 14px;
+  padding: 1.15rem;
+}
+
+.privacy-card h2 {
+  margin: 0 0 0.75rem;
+  color: #f89422;
+  font-size: 1.1rem;
+}
+
+.privacy-card p {
+  margin: 0 0 0.55rem;
+  color: #ddd;
+  line-height: 1.65;
+}
+
+.privacy-card p:last-child {
+  margin-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .privacy-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
