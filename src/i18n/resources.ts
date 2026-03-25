@@ -59,6 +59,144 @@ export const resources = {
         services: "Our services",
         legal: "Legal information",
       },
+      services: {
+        publicSafety: {
+          pageTitle: "Public safety consulting",
+          intro:
+            "We support public and private organizations with risk analysis, compliance, and sustainable strategy implementation.",
+          cards: [
+            {
+              title: "Risk assessment",
+              description:
+                "Procedure audits, vulnerability identification, and prioritization of corrective actions.",
+            },
+            {
+              title: "Response plans",
+              description:
+                "Design of emergency plans, incident scenarios, and crisis communication protocols.",
+            },
+            {
+              title: "Team training",
+              description:
+                "Hands-on workshops to improve operational reflexes and cross-team coordination.",
+            },
+          ],
+          lists: [
+            {
+              title: "Examples of interventions",
+              items: [
+                "Safety diagnostics for institutional sites",
+                "Internal policy reviews",
+                "Crisis management support",
+              ],
+            },
+          ],
+          legalText:
+            "Consulting services are delivered under a written mandate, in compliance with the laws and regulations applicable to the client's industry.",
+        },
+        francophoneServices: {
+          pageTitle: "Francophone community services",
+          intro:
+            "We support Ontario's Francophone communities with services adapted to their local, social, and cultural realities.",
+          cards: [
+            {
+              title: "Personalized support",
+              description:
+                "Guidance toward the right resources based on health, employment, education, and integration needs.",
+            },
+            {
+              title: "Community facilitation",
+              description:
+                "Organization of activities, support groups, and initiatives that encourage civic participation.",
+            },
+            {
+              title: "Support for organizations",
+              description:
+                "Strategic consulting to structure services and increase the impact of community actions.",
+            },
+          ],
+          lists: [
+            {
+              title: "Client groups served",
+              items: [
+                "Newcomers",
+                "Families and caregivers",
+                "Seniors in minority Francophone communities",
+              ],
+            },
+          ],
+          legalText:
+            "Community interventions comply with personal information confidentiality requirements and current professional ethics standards.",
+        },
+        healthSafety: {
+          pageTitle: "Workplace health and safety services",
+          intro:
+            "We help employers build safer workplaces with a preventive approach aligned with regulatory obligations.",
+          cards: [
+            {
+              title: "Prevention program",
+              description:
+                "Implementation of prevention tools, OHS dashboards, and continuous improvement routines.",
+            },
+            {
+              title: "Regulatory compliance",
+              description:
+                "Support to align internal practices with provincial and sector-specific requirements.",
+            },
+            {
+              title: "Incident investigations",
+              description:
+                "Root-cause analysis, recommendations, and follow-up on corrective action implementation.",
+            },
+          ],
+          lists: [
+            {
+              title: "Possible deliverables",
+              items: [
+                "OHS policies and procedures",
+                "Employee training records",
+                "Annual prevention plan",
+              ],
+            },
+          ],
+          legalText:
+            "OHS recommendations remain subject to employer validation and obligations under applicable labour legislation.",
+        },
+        animalFirstAid: {
+          pageTitle: "Animal first aid services",
+          intro:
+            "We provide training and guidance in animal first aid for professional, community, and family settings.",
+          cards: [
+            {
+              title: "Practical training",
+              description:
+                "Field-oriented workshops to respond quickly during animal emergencies.",
+            },
+            {
+              title: "Emergency protocols",
+              description:
+                "Creation of response guides adapted to pets and workplace environments.",
+            },
+            {
+              title: "Prevention awareness",
+              description:
+                "Best practices for handling, monitoring, and preventing common injuries.",
+            },
+          ],
+          lists: [
+            {
+              title: "Target audiences",
+              items: [
+                "Animal daycare and boarding facilities",
+                "Families with pets",
+                "Community workers",
+              ],
+            },
+          ],
+          legalText:
+            "Animal first aid does not replace veterinary consultation and is provided as immediate support before clinical care.",
+        },
+      },
     },
     header: {
       brand: {
@@ -135,6 +273,144 @@ export const resources = {
       sections: {
         services: "Nos services",
         legal: "Information légale",
+      },
+      services: {
+        publicSafety: {
+          pageTitle: "Cabinet-conseil en sécurité publique",
+          intro:
+            "Nous accompagnons les organisations publiques et privées dans l'analyse des risques, la conformité et la mise en place de stratégies durables.",
+          cards: [
+            {
+              title: "Évaluation des risques",
+              description:
+                "Audit des procédures, identification des vulnérabilités et priorisation des actions correctives.",
+            },
+            {
+              title: "Plans d'intervention",
+              description:
+                "Conception de plans d'urgence, scénarios d'incident et protocoles de communication de crise.",
+            },
+            {
+              title: "Formation des équipes",
+              description:
+                "Ateliers pratiques pour améliorer les réflexes opérationnels et la coordination interservices.",
+            },
+          ],
+          lists: [
+            {
+              title: "Exemples d'interventions",
+              items: [
+                "Diagnostic sécurité de sites institutionnels",
+                "Révision des politiques internes",
+                "Accompagnement à la gestion de crise",
+              ],
+            },
+          ],
+          legalText:
+            "Les services-conseils sont fournis selon un mandat écrit, dans le respect des lois et règlements applicables au secteur d'activité du client.",
+        },
+        francophoneServices: {
+          pageTitle: "Services communautaires francophones",
+          intro:
+            "Nous soutenons les communautés francophones de l'Ontario avec des services adaptés à leur réalité locale, sociale et culturelle.",
+          cards: [
+            {
+              title: "Accompagnement personnalisé",
+              description:
+                "Orientation vers les ressources adéquates selon les besoins en santé, emploi, éducation et intégration.",
+            },
+            {
+              title: "Animation communautaire",
+              description:
+                "Organisation d'activités, de groupes de soutien et d'initiatives favorisant la participation citoyenne.",
+            },
+            {
+              title: "Appui aux organismes",
+              description:
+                "Conseil stratégique pour structurer les services et renforcer l'impact des actions communautaires.",
+            },
+          ],
+          lists: [
+            {
+              title: "Clientèles accompagnées",
+              items: [
+                "Nouveaux arrivants",
+                "Familles et proches aidants",
+                "Aînés en milieu francophone minoritaire",
+              ],
+            },
+          ],
+          legalText:
+            "Les interventions communautaires respectent la confidentialité des informations personnelles et les normes d'éthique professionnelle en vigueur.",
+        },
+        healthSafety: {
+          pageTitle: "Services en santé et sécurité au travail (SST)",
+          intro:
+            "Nous aidons les employeurs à créer des milieux de travail sécuritaires grâce à une approche préventive et conforme aux obligations réglementaires.",
+          cards: [
+            {
+              title: "Programme de prévention",
+              description:
+                "Mise en place d'outils de prévention, tableaux de bord SST et routines d'amélioration continue.",
+            },
+            {
+              title: "Conformité réglementaire",
+              description:
+                "Accompagnement pour aligner les pratiques internes avec les exigences provinciales et sectorielles.",
+            },
+            {
+              title: "Enquêtes d'incident",
+              description:
+                "Analyse des causes, recommandations et suivi de la mise en œuvre des mesures correctives.",
+            },
+          ],
+          lists: [
+            {
+              title: "Livrables possibles",
+              items: [
+                "Politiques et procédures SST",
+                "Registre de formation des employés",
+                "Plan de prévention annuel",
+              ],
+            },
+          ],
+          legalText:
+            "Les recommandations SST demeurent sujettes à la validation de l'employeur et aux obligations prévues par la législation du travail applicable.",
+        },
+        animalFirstAid: {
+          pageTitle: "Services de premiers soins animaliers",
+          intro:
+            "Nous offrons de la formation et de l'accompagnement en premiers soins animaliers pour les milieux professionnels, communautaires et familiaux.",
+          cards: [
+            {
+              title: "Formation pratique",
+              description:
+                "Ateliers orientés terrain pour réagir rapidement en situation d'urgence animale.",
+            },
+            {
+              title: "Protocoles d'urgence",
+              description:
+                "Création de guides d'intervention adaptés aux animaux de compagnie et aux environnements de travail.",
+            },
+            {
+              title: "Sensibilisation prévention",
+              description:
+                "Bonnes pratiques de manipulation, de surveillance et de prévention des blessures courantes.",
+            },
+          ],
+          lists: [
+            {
+              title: "Publics visés",
+              items: [
+                "Garderies et pensions animalières",
+                "Familles avec animaux domestiques",
+                "Intervenants communautaires",
+              ],
+            },
+          ],
+          legalText:
+            "Les premiers soins animaliers ne remplacent pas une consultation vétérinaire et sont offerts à titre de soutien immédiat avant la prise en charge clinique.",
+        },
       },
     },
     header: {

@@ -14,6 +14,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
     return value === key ? fallback : value;
   };
+  const serviceBaseKey = `servicePage.services.${service.key}`;
 
   return (
     <>
@@ -21,8 +22,8 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
       <main className="service-page">
         <section className="service-hero">
           <div className="container">
-            <h1>{service.pageTitle}</h1>
-            <p>{service.intro}</p>
+            <h1>{text(`${serviceBaseKey}.pageTitle`, service.pageTitle)}</h1>
+            <p>{text(`${serviceBaseKey}.intro`, service.intro)}</p>
           </div>
         </section>
 
@@ -30,10 +31,10 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <div className="container">
             <h2>{text("servicePage.sections.services", "Nos services")}</h2>
             <div className="service-card-grid">
-              {service.cards.map((card) => (
+              {service.cards.map((card, cardIndex) => (
                 <article key={card.title} className="service-detail-card">
-                  <h3>{card.title}</h3>
-                  <p>{card.description}</p>
+                  <h3>{text(`${serviceBaseKey}.cards.${cardIndex}.title`, card.title)}</h3>
+                  <p>{text(`${serviceBaseKey}.cards.${cardIndex}.description`, card.description)}</p>
                 </article>
               ))}
             </div>
@@ -42,12 +43,14 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
         <section className="service-section">
           <div className="container">
-            {service.lists.map((list) => (
+            {service.lists.map((list, listIndex) => (
               <article key={list.title} className="service-list-card">
-                <h3>{list.title}</h3>
+                <h3>{text(`${serviceBaseKey}.lists.${listIndex}.title`, list.title)}</h3>
                 <ul>
-                  {list.items.map((item) => (
-                    <li key={item}>{item}</li>
+                  {list.items.map((item, itemIndex) => (
+                    <li key={item}>
+                      {text(`${serviceBaseKey}.lists.${listIndex}.items.${itemIndex}`, item)}
+                    </li>
                   ))}
                 </ul>
               </article>
@@ -58,7 +61,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
         <section className="service-legal">
           <div className="container">
             <h2>{text("servicePage.sections.legal", "Information légale")}</h2>
-            <p>{service.legalText}</p>
+            <p>{text(`${serviceBaseKey}.legalText`, service.legalText)}</p>
           </div>
         </section>
       </main>
