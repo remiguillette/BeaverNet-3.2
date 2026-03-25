@@ -13,7 +13,7 @@ const resources = {
     header: {
       brand: {
         homeAria: "Home - Rémi Guillette Group",
-        logoAlt: "Rémi Guillette Group Logo",
+        logoAlt: "Stylized illustration of an orange beaver representing the company's visual identity",
         groupFr: "Groupe",
         groupEn: "Group",
       },
@@ -28,7 +28,7 @@ const resources = {
     header: {
       brand: {
         homeAria: "Accueil - Groupe Rémi Guillette",
-        logoAlt: "Logo du Groupe Rémi Guillette",
+        logoAlt: "Illustration stylisée d'un castor orange représentant l'identité visuelle de l'entreprise",
         groupFr: "Groupe",
         groupEn: "Group",
       },
