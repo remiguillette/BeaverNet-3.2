@@ -1,30 +1,7 @@
 import { Link } from "react-router-dom";
-import { Shield, User, HardHat, PawPrint } from "lucide-react";
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
-
-const divisions = [
-  {
-    icon: Shield,
-    title: "Cabinet-conseil en sécurité publique",
-    href: "/public-safety",
-  },
-  {
-    icon: User,
-    title: "Services communautaires francophones",
-    href: "/francophone-services",
-  },
-  {
-    icon: HardHat,
-    title: "Services en santé et sécurité au travail (SST)",
-    href: "/health-safety",
-  },
-  {
-    icon: PawPrint,
-    title: "Services de premiers soins animaliers",
-    href: "/animal-first-aid",
-  },
-];
+import { servicePages } from "../data/servicePages";
 
 export default function Home() {
   return (
@@ -50,18 +27,18 @@ export default function Home() {
             <h2>Secteurs d&apos;activité</h2>
 
             <div className="card-grid">
-              {divisions.map((division) => {
-                const Icon = division.icon;
+              {servicePages.map((servicePage) => {
+                const Icon = servicePage.homeIcon;
 
                 return (
                   <Link
-                    key={division.href}
-                    to={division.href}
+                    key={servicePage.path}
+                    to={servicePage.path}
                     className="sector-card"
-                    aria-label={`Voir ${division.title}`}
+                    aria-label={`Voir ${servicePage.homeTitle}`}
                   >
                     <Icon className="sector-icon" aria-hidden="true" />
-                    <h3>{division.title}</h3>
+                    <h3>{servicePage.homeTitle}</h3>
                   </Link>
                 );
               })}

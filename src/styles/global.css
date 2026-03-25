@@ -505,3 +505,86 @@ main {
   background: #f89422;
   color: #000;
 }
+
+.service-page {
+  padding-bottom: 3rem;
+}
+
+.service-hero {
+  padding: clamp(2rem, 6vw, 4rem) 0 1.5rem;
+}
+
+.service-hero h1 {
+  margin: 0 0 1rem;
+  color: #f89422;
+  font-size: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.service-hero p {
+  margin: 0;
+  max-width: 760px;
+  line-height: 1.7;
+  color: #f4f4f4;
+}
+
+.service-section {
+  padding: 1.5rem 0;
+}
+
+.service-section h2 {
+  margin: 0 0 1.1rem;
+  color: #0d6efd;
+}
+
+.service-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.service-detail-card,
+.service-list-card {
+  background: #0a0a0a;
+  border: 1px solid #f89422;
+  border-radius: 14px;
+  padding: 1.1rem;
+}
+
+.service-detail-card h3,
+.service-list-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.6rem;
+  color: #f89422;
+}
+
+.service-detail-card p {
+  margin: 0;
+  line-height: 1.6;
+}
+
+.service-list-card ul {
+  margin: 0;
+  padding-left: 1.2rem;
+  line-height: 1.7;
+}
+
+.service-legal {
+  padding: 1.5rem 0 0;
+}
+
+.service-legal h2 {
+  color: #0d6efd;
+  margin-bottom: 0.75rem;
+}
+
+.service-legal p {
+  margin: 0;
+  color: #dddddd;
+  line-height: 1.7;
+}
+
+@media (min-width: 800px) {
+  .service-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
