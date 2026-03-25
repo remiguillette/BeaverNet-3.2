@@ -357,13 +357,73 @@ main {
   padding: 2rem 0 3rem;
 }
 
-footer {
-  text-align: center;
+.site-footer {
+  padding: 3rem 0;
+  background: #000;
+  border-top: 1px solid #f89422;
 }
 
-footer p {
-  margin: 0;
-  padding: 0 1rem;
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.footer-logo {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  margin-bottom: 1rem;
+}
+
+.footer-remi-guillette,
+.footer-group-line,
+.footer-links a,
+.footer-contact,
+.footer-contact a,
+.footer-registration p {
+  margin: 0 0 0.5rem;
+}
+
+.footer-remi-guillette,
+.footer-group-line {
+  font-weight: 700;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.75rem;
+}
+
+.footer-links a,
+.footer-contact a {
+  color: #f89422;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-contact a:hover {
+  color: #fff;
+}
+
+.footer-contact {
+  font-style: normal;
+  color: #f89422;
+}
+
+.footer-registration p {
+  color: #f89422;
+}
+
+.footer-contact-button.border-gradient-button {
+  color: #fff;
+}
+
+.footer-contact-button.border-gradient-button:hover {
+  color: #fff;
+  filter: brightness(1.15);
 }
 
 @media (max-width: 699px) {
@@ -395,6 +455,13 @@ footer p {
   .sector-card {
     min-height: 150px;
     padding: 1.2rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .footer-grid {
+    grid-template-columns: 1.2fr 1fr 1fr 1fr;
+    align-items: start;
   }
 }
 
