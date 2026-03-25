@@ -397,3 +397,44 @@ footer p {
     padding: 1.2rem;
   }
 }
+
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #000;
+  border-top: 2px solid #f89422;
+  padding: 1rem;
+  z-index: 100;
+}
+
+.cookie-banner h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.cookie-banner p {
+  font-size: 0.85rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.cookie-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.cookie-actions button {
+  border: 1px solid #f89422;
+  background: transparent;
+  color: #f89422;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+.cookie-actions button:hover {
+  background: #f89422;
+  color: #000;
+}
