@@ -230,8 +230,8 @@ export const resources = {
       },
       contact: {
         title: "Contact",
-        line1: "6388 rue Hawkins",
-        line2: "App. 307",
+        line1: "6388 Hawkins Street",
+        line2: "Apt. 307",
         line3: "Niagara Falls, Ontario",
         line4: "L2G 1P3",
         phoneLabel: "Téléphone",
