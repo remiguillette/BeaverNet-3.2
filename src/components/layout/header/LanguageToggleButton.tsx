@@ -1,8 +1,8 @@
-import { type RefObject } from "react";
+import { type Ref } from "react";
 import { Languages } from "lucide-react";
 
 type LanguageToggleButtonProps = {
-  buttonRef: RefObject<HTMLButtonElement | null>;
+  buttonRef: Ref<HTMLButtonElement>;
   onToggleLanguage: () => void;
   ariaLabel: string;
   label: string;

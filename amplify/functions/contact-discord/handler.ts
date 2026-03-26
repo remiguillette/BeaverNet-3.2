@@ -1,3 +1,8 @@
+import type {
+  APIGatewayProxyEvent,
+  APIGatewayProxyEventV2,
+  APIGatewayProxyResult,
+} from "aws-lambda";
 import {
   CONTACT_ALLOWED_ORIGINS_ENV_KEY,
   parseAllowedOrigins,
@@ -20,14 +25,24 @@ type ValidationOutcome =
   | "input_too_long"
   | "valid";
 
+type ApiGatewayEvent = APIGatewayProxyEvent | APIGatewayProxyEventV2;
+
 const allowedOrigins = parseAllowedOrigins(process.env[CONTACT_ALLOWED_ORIGINS_ENV_KEY]);
 
-function resolveAllowedOrigin(event: any): string | undefined {
-  const requestOrigin =
-    event?.headers?.origin ??
-    event?.headers?.Origin ??
-    event?.headers?.ORIGIN ??
-    undefined;
+function readHeader(event: ApiGatewayEvent, headerName: string): string | undefined {
+  const targetName = headerName.toLowerCase();
+
+  for (const [headerKey, value] of Object.entries(event.headers ?? {})) {
+    if (headerKey.toLowerCase() === targetName && typeof value === "string") {
+      return value;
+    }
+  }
+
+  return undefined;
+}
+
+function resolveAllowedOrigin(event: ApiGatewayEvent): string | undefined {
+  const requestOrigin = readHeader(event, "origin");
 
   if (!requestOrigin) {
     return allowedOrigins[0];
@@ -36,7 +51,11 @@ function resolveAllowedOrigin(event: any): string | undefined {
   return allowedOrigins.includes(requestOrigin) ? requestOrigin : undefined;
 }
 
-function response(statusCode: number, body: unknown, event: any) {
+function response(
+  statusCode: number,
+  body: Record<string, string | boolean>,
+  event: ApiGatewayEvent,
+): APIGatewayProxyResult {
   const allowedOrigin = resolveAllowedOrigin(event);
 
   return {
@@ -60,14 +79,35 @@ function isValidEmail(email: string) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
 
-function getRequestId(event: any): string {
-  return (
-    event?.requestContext?.requestId ??
-    event?.requestContext?.http?.requestId ??
-    event?.headers?.["x-request-id"] ??
-    event?.headers?.["X-Request-Id"] ??
-    crypto.randomUUID()
-  );
+function getRequestId(event: ApiGatewayEvent): string {
+  if ("requestContext" in event && "requestId" in event.requestContext) {
+    return event.requestContext.requestId;
+  }
+
+  const xRequestId = readHeader(event, "x-request-id");
+  return xRequestId ?? crypto.randomUUID();
+}
+
+function getMethod(event: ApiGatewayEvent): string {
+  if ("version" in event) {
+    return event.requestContext.http.method;
+  }
+
+  return event.httpMethod;
+}
+
+function parseJsonBody<T extends object>(event: ApiGatewayEvent): T {
+  const rawBody = event.body;
+
+  if (!rawBody) {
+    return {} as T;
+  }
+
+  const normalized = event.isBase64Encoded
+    ? Buffer.from(rawBody, "base64").toString("utf8")
+    : rawBody;
+
+  return JSON.parse(normalized) as T;
 }
 
 function logMetadata(metadata: {
@@ -86,8 +126,8 @@ function logMetadata(metadata: {
   );
 }
 
-export const handler = async (event: any) => {
-  const method = event?.requestContext?.http?.method || event?.httpMethod || "POST";
+export const handler = async (event: ApiGatewayEvent): Promise<APIGatewayProxyResult> => {
+  const method = getMethod(event);
   const requestId = getRequestId(event);
 
   try {
@@ -108,7 +148,7 @@ export const handler = async (event: any) => {
 
     let payload: ContactBody = {};
     try {
-      payload = JSON.parse(event.body ?? "{}");
+      payload = parseJsonBody<ContactBody>(event);
     } catch {
       logMetadata({
         requestId,
