@@ -139,6 +139,8 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
+      console.log("CONTACT_API_URL =", CONTACT_API_URL);
+
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -153,10 +155,15 @@ export function useContactForm() {
         }),
       });
 
-      const json = await response.json();
+      console.log("response.status =", response.status);
+
+      const raw = await response.text();
+      console.log("response.raw =", raw);
+
+      const json = raw ? JSON.parse(raw) : {};
 
       if (!response.ok) {
-        throw new Error(json?.error || "Erreur lors de l’envoi");
+        throw new Error(json?.error || `HTTP ${response.status}`);
       }
 
       setCooldown();
@@ -165,10 +172,14 @@ export function useContactForm() {
         type: "success",
         message: text("contact.form.successMessage", "Your message was sent successfully."),
       });
-    } catch {
+    } catch (err) {
+      console.error("handleSubmit error:", err);
       setFeedback({
         type: "error",
-        message: text("contact.form.errorMessage", "An error occurred while sending your message."),
+        message:
+          err instanceof Error
+            ? err.message
+            : text("contact.form.errorMessage", "An error occurred while sending your message."),
       });
     } finally {
       setIsSubmitting(false);
