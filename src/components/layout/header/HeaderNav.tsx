@@ -8,7 +8,7 @@ type HeaderNavProps = {
   ontarioTextLang: "fr" | "en";
   toggleAriaLabel: string;
   toggleLabel: string;
-  buttonRef: React.Ref<HTMLButtonElement>;
+  buttonRef: React.RefObject<HTMLButtonElement | null>;
   onToggleLanguage: () => void;
 };
 
