@@ -14,7 +14,7 @@ const contactApi = new HttpApi(apiStack, "ContactHttpApi", {
   apiName: "contact-api",
   corsPreflight: {
     allowMethods: [CorsHttpMethod.POST, CorsHttpMethod.OPTIONS],
-    allowOrigins: ["https://main.dzhgbx6dae47h.amplifyapp.com/"],
+    allowOrigins: ["https://main.dzhgbx6dae47h.amplifyapp.com"],
     allowHeaders: ["content-type"],
   },
 });
