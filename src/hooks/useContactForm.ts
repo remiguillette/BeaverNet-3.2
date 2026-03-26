@@ -7,7 +7,7 @@ type ContactFormData = {
   email: string;
   service: string;
   message: string;
-  company: string;
+  website: string;
 };
 
 const INITIAL_FORM: ContactFormData = {
@@ -16,7 +16,7 @@ const INITIAL_FORM: ContactFormData = {
   email: "",
   service: "",
   message: "",
-  company: "",
+  website: "",
 };
 
 type ValidationResult =
@@ -147,7 +147,7 @@ export function useContactForm() {
           name: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
           message: `${formData.message}\n\nService: ${formData.service}`,
-          company: formData.company,
+          website: formData.website,
           startedAt: formStartTime,
         }),
       });

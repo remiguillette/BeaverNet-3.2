@@ -1,113 +1,94 @@
-type ContactPayload = {
+type ContactBody = {
   name?: string;
   email?: string;
   message?: string;
-  company?: string;
-  startedAt?: number;
+  website?: string;
 };
 
-type LambdaEvent = {
-  body?: string | null;
-  requestContext?: {
-    http?: {
-      method?: string;
-      sourceIp?: string;
-    };
+const allowedOrigin = process.env.ALLOWED_ORIGIN ?? "http://localhost:5173";
+
+function response(statusCode: number, body: unknown) {
+  return {
+    statusCode,
+    headers: {
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": allowedOrigin,
+      "Access-Control-Allow-Headers": "content-type",
+      "Access-Control-Allow-Methods": "POST,OPTIONS",
+    },
+    body: JSON.stringify(body),
   };
-};
+}
 
-const MAX_MESSAGE_LENGTH = 2000;
-const MAX_NAME_LENGTH = 100;
-const MAX_EMAIL_LENGTH = 200;
-const MIN_FORM_FILL_TIME_MS = 3000;
-const REQUEST_COOLDOWN_MS = 15000;
+function isValidEmail(email: string) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
 
-const rateLimitStore = new Map<string, number>();
-
-const json = (statusCode: number, body: unknown, origin: string) => ({
-  statusCode,
-  headers: {
-    "Content-Type": "application/json",
-    "Access-Control-Allow-Origin": origin,
-    "Access-Control-Allow-Headers": "Content-Type",
-    "Access-Control-Allow-Methods": "POST,OPTIONS",
-  },
-  body: JSON.stringify(body),
-});
-
-const isEmail = (value: string) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-
-const toDiscordContent = (data: Required<Pick<ContactPayload, "name" | "email" | "message">>) =>
-  ["📩 New contact message", `**Name:** ${data.name}`, `**Email:** ${data.email}`, `**Message:**\n${data.message}`].join("\n");
-
-export const handler = async (event: LambdaEvent) => {
-  const method = event.requestContext?.http?.method;
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || "https://your-domain.com";
+export const handler = async (event: any) => {
+  const method = event?.requestContext?.http?.method || event?.httpMethod || "POST";
 
   if (method === "OPTIONS") {
-    return json(200, { ok: true }, allowedOrigin);
+    return response(200, { ok: true });
   }
 
   if (method !== "POST") {
-    return json(405, { error: "Method not allowed" }, allowedOrigin);
+    return response(405, { error: "Method not allowed" });
   }
 
-  let payload: ContactPayload;
-
+  let payload: ContactBody = {};
   try {
     payload = JSON.parse(event.body ?? "{}");
   } catch {
-    return json(400, { error: "Invalid JSON" }, allowedOrigin);
+    return response(400, { error: "Invalid JSON body" });
   }
 
   const name = (payload.name ?? "").trim();
   const email = (payload.email ?? "").trim();
   const message = (payload.message ?? "").trim();
-  const company = (payload.company ?? "").trim();
-  const startedAt = Number(payload.startedAt ?? 0);
+  const website = (payload.website ?? "").trim();
 
-  if (company) {
-    return json(200, { ok: true }, allowedOrigin);
+  if (website) {
+    return response(200, { ok: true });
   }
 
   if (!name || !email || !message) {
-    return json(400, { error: "Missing required fields" }, allowedOrigin);
+    return response(400, { error: "Missing required fields" });
   }
 
-  if (!isEmail(email)) {
-    return json(400, { error: "Invalid email format" }, allowedOrigin);
+  if (!isValidEmail(email)) {
+    return response(400, { error: "Invalid email address" });
   }
 
-  if (name.length > MAX_NAME_LENGTH || email.length > MAX_EMAIL_LENGTH || message.length > MAX_MESSAGE_LENGTH) {
-    return json(400, { error: "Input too long" }, allowedOrigin);
+  if (name.length > 100 || email.length > 200 || message.length > 2000) {
+    return response(400, { error: "Input too long" });
   }
-
-  if (startedAt > 0 && Date.now() - startedAt < MIN_FORM_FILL_TIME_MS) {
-    return json(429, { error: "Submitted too quickly" }, allowedOrigin);
-  }
-
-  const ip = event.requestContext?.http?.sourceIp ?? "unknown";
-  const lastSeen = rateLimitStore.get(ip) ?? 0;
-  if (Date.now() - lastSeen < REQUEST_COOLDOWN_MS) {
-    return json(429, { error: "Too many requests. Please wait a few seconds." }, allowedOrigin);
-  }
-  rateLimitStore.set(ip, Date.now());
 
   const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
   if (!webhookUrl) {
-    return json(500, { error: "Webhook not configured" }, allowedOrigin);
+    return response(500, { error: "Missing webhook secret" });
   }
+
+  const discordPayload = {
+    content:
+      "📩 Nouveau message de contact\n\n" +
+      `**Nom :** ${name}\n` +
+      `**Email :** ${email}\n` +
+      `**Message :**\n${message}`,
+  };
 
   const discordRes = await fetch(webhookUrl, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ content: toDiscordContent({ name, email, message }) }),
+    body: JSON.stringify(discordPayload),
   });
 
   if (!discordRes.ok) {
-    const details = (await discordRes.text()).slice(0, 500);
-    return json(502, { error: "Discord request failed", details }, allowedOrigin);
+    const errorText = await discordRes.text();
+    return response(502, {
+      error: "Discord webhook failed",
+      details: errorText.slice(0, 500),
+    });
   }
 
-  return json(200, { ok: true }, allowedOrigin);
+  return response(200, { ok: true });
 };

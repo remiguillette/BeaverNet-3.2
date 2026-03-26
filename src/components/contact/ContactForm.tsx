@@ -122,14 +122,14 @@ export function ContactForm() {
         </label>
 
         <div className="contact-form-honeypot" aria-hidden="true">
-          <label htmlFor="company">Company</label>
+          <label htmlFor="website">Company</label>
           <input
-            id="company"
+            id="website"
             type="text"
-            name="company"
+            name="website"
             tabIndex={-1}
             autoComplete="off"
-            value={formData.company}
+            value={formData.website}
             onChange={handleInputChange}
           />
         </div>
