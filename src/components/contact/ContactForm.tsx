@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Shield } from "lucide-react";
+import { ShieldCheck, Sparkles } from "lucide-react";
 import { useContactForm } from "../../hooks/useContactForm";
 
 export function ContactForm() {
@@ -27,15 +27,20 @@ export function ContactForm() {
   }, []);
 
   return (
-    <div className="contact-form-card bg-black rounded-2xl p-8 border-2 border-primary">
-      <h2 className="text-2xl font-bold mb-6 text-primary">{text("contact.form.title", "Send us a message")}</h2>
+    <div className="contact-form-shell">
+      <div className="contact-form-heading">
+        <p className="contact-form-kicker">
+          <Sparkles size={16} aria-hidden="true" />
+          {text("contact.form.kicker", "Secure contact pipeline")}
+        </p>
+        <h2>{text("contact.form.title", "Send us a message")}</h2>
+        <p>{text("contact.form.subtitle", "Your request is validated and processed securely by our backend.")}</p>
+      </div>
 
-      <form onSubmit={handleSubmit} className="contact-form-grid">
-        <div className="grid md:grid-cols-2 gap-6">
-          <div>
-            <label htmlFor="firstName" className="block text-sm font-medium mb-2 text-primary">
-              {text("contact.form.firstName", "First Name")}
-            </label>
+      <form onSubmit={handleSubmit} className="contact-form-grid" noValidate>
+        <div className="contact-form-two-col">
+          <label htmlFor="firstName" className="contact-form-label">
+            {text("contact.form.firstName", "First Name")}
             <input
               id="firstName"
               name="firstName"
@@ -43,16 +48,15 @@ export function ContactForm() {
               autoComplete="given-name"
               value={formData.firstName}
               onChange={handleInputChange}
-              className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+              className="contact-form-field"
               placeholder={text("contact.form.firstNamePlaceholder", "First name")}
               required
+              maxLength={100}
             />
-          </div>
+          </label>
 
-          <div>
-            <label htmlFor="lastName" className="block text-sm font-medium mb-2 text-primary">
-              {text("contact.form.lastName", "Last Name")}
-            </label>
+          <label htmlFor="lastName" className="contact-form-label">
+            {text("contact.form.lastName", "Last Name")}
             <input
               id="lastName"
               name="lastName"
@@ -60,17 +64,16 @@ export function ContactForm() {
               autoComplete="family-name"
               value={formData.lastName}
               onChange={handleInputChange}
-              className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+              className="contact-form-field"
               placeholder={text("contact.form.lastNamePlaceholder", "Last name")}
               required
+              maxLength={100}
             />
-          </div>
+          </label>
         </div>
 
-        <div>
-          <label htmlFor="email" className="block text-sm font-medium mb-2 text-primary">
-            {text("contact.form.email", "Email Address")}
-          </label>
+        <label htmlFor="email" className="contact-form-label">
+          {text("contact.form.email", "Email Address")}
           <input
             id="email"
             name="email"
@@ -78,22 +81,21 @@ export function ContactForm() {
             autoComplete="email"
             value={formData.email}
             onChange={handleInputChange}
-            className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+            className="contact-form-field"
             placeholder={text("contact.form.emailPlaceholder", "you@email.com")}
             required
+            maxLength={200}
           />
-        </div>
+        </label>
 
-        <div>
-          <label htmlFor="service" className="block text-sm font-medium mb-2 text-primary">
-            {text("contact.form.service", "Service of Interest")}
-          </label>
+        <label htmlFor="service" className="contact-form-label">
+          {text("contact.form.service", "Service of Interest")}
           <select
             id="service"
             name="service"
             value={formData.service}
             onChange={handleInputChange}
-            className="contact-form-field w-full px-4 py-3 bg-black border-2 border-primary rounded-lg text-white"
+            className="contact-form-field"
             required
           >
             <option value="">{text("contact.form.selectService", "Select a service")}</option>
@@ -102,72 +104,54 @@ export function ContactForm() {
             <option value="health-safety">{text("contact.form.services.healthSafety", "Health & Safety")}</option>
             <option value="animal-aid">{text("contact.form.services.animalAid", "Animal First Aid")}</option>
           </select>
-        </div>
+        </label>
 
-        <div>
-          <label htmlFor="message" className="block text-sm font-medium mb-2 text-primary">
-            {text("contact.form.message", "Message")}
-          </label>
+        <label htmlFor="message" className="contact-form-label">
+          {text("contact.form.message", "Message")}
           <textarea
             id="message"
             name="message"
-            rows={5}
+            rows={6}
             value={formData.message}
             onChange={handleInputChange}
-            className="contact-form-field w-full px-4 py-4 bg-black border-2 border-primary rounded-lg text-white resize-none"
+            className="contact-form-field contact-form-textarea"
             placeholder={text("contact.form.messagePlaceholder", "How can we help you?")}
             required
+            maxLength={2000}
+          />
+        </label>
+
+        <div className="contact-form-honeypot" aria-hidden="true">
+          <label htmlFor="company">Company</label>
+          <input
+            id="company"
+            type="text"
+            name="company"
+            tabIndex={-1}
+            autoComplete="off"
+            value={formData.company}
+            onChange={handleInputChange}
           />
         </div>
 
-        <div className="absolute -left-[9999px] opacity-0 pointer-events-none" aria-hidden="true">
-          <input type="text" name="website" tabIndex={-1} autoComplete="off" />
-          <input type="url" name="url" tabIndex={-1} autoComplete="off" />
-          <input type="tel" name="phone_hidden" tabIndex={-1} autoComplete="off" />
-        </div>
-
-        <div className="flex justify-center">
-          <div className="text-primary text-center text-sm flex flex-col items-center">
-            <div className="flex items-center gap-2 mb-1">
-              <Shield size={16} aria-hidden="true" />
-              <span>{text("contact.form.securityNote", "Enhanced abuse protection enabled")}</span>
-            </div>
-          </div>
+        <div className="contact-form-security-note">
+          <ShieldCheck size={17} aria-hidden="true" />
+          <span>{text("contact.form.securityNote", "Protected by server-side validation, anti-spam checks, and secret management.")}</span>
         </div>
 
         {feedback && (
-          <p className={feedback.type === "error" ? "text-red-500" : "text-green-500"}>{feedback.message}</p>
+          <p className={feedback.type === "error" ? "contact-form-feedback is-error" : "contact-form-feedback is-success"}>
+            {feedback.message}
+          </p>
         )}
 
         <button
           ref={submitButtonRef}
           type="submit"
           disabled={disabled}
-          className="border-gradient-button w-full py-4 px-8 text-white font-semibold disabled:opacity-50"
+          className="border-gradient-button contact-submit-button"
         >
-          {isSubmitting ? (
-            <span className="flex items-center justify-center gap-2">
-              <svg className="animate-spin h-4 w-4" viewBox="0 0 24 24" aria-hidden="true">
-                <circle
-                  className="opacity-25"
-                  cx="12"
-                  cy="12"
-                  r="10"
-                  stroke="currentColor"
-                  strokeWidth="4"
-                  fill="none"
-                />
-                <path
-                  className="opacity-75"
-                  fill="currentColor"
-                  d="M12 2a10 10 0 0 0-10 10h4a6 6 0 0 1 6-6V2z"
-                />
-              </svg>
-              {text("contact.form.submitting", "Sending...")}
-            </span>
-          ) : (
-            text("contact.form.submit", "Submit")
-          )}
+          {isSubmitting ? text("contact.form.submitting", "Sending...") : text("contact.form.submit", "Submit")}
         </button>
       </form>
     </div>
