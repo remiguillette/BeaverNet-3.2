@@ -1,11 +1,31 @@
 import { defineBackend } from "@aws-amplify/backend";
+import { HttpMethod } from "aws-cdk-lib/aws-apigatewayv2";
+import { HttpApi, CorsHttpMethod } from "aws-cdk-lib/aws-apigatewayv2";
+import { HttpLambdaIntegration } from "aws-cdk-lib/aws-apigatewayv2-integrations";
 import { contactDiscord } from "./functions/contact-discord/resource";
 
-/**
- * Amplify backend resources.
- * Connect `contactDiscord` to a REST/HTTP API route (POST /contact)
- * using API Gateway in your Gen 2 backend setup.
- */
-defineBackend({
+const backend = defineBackend({
   contactDiscord,
+});
+
+const apiStack = backend.createStack("contact-api-stack");
+
+const contactApi = new HttpApi(apiStack, "ContactHttpApi", {
+  apiName: "contact-api",
+  corsPreflight: {
+    allowMethods: [CorsHttpMethod.POST, CorsHttpMethod.OPTIONS],
+    allowOrigins: ["http://localhost:5173"],
+    allowHeaders: ["content-type"],
+  },
+});
+
+const contactIntegration = new HttpLambdaIntegration(
+  "ContactDiscordIntegration",
+  backend.contactDiscord.resources.lambda,
+);
+
+contactApi.addRoutes({
+  path: "/contact",
+  methods: [HttpMethod.POST, HttpMethod.OPTIONS],
+  integration: contactIntegration,
 });
