@@ -41,6 +41,8 @@ The Lambda handler includes:
    VITE_CONTACT_API_URL=https://api.your-domain.com/contact
    ```
 
+   `VITE_CONTACT_API_URL` is required. There is no hardcoded fallback URL in the frontend.
+
 3. Run locally:
 
    ```bash
@@ -55,4 +57,4 @@ The Lambda handler includes:
    - `CONTACT_ALLOWED_ORIGIN` (for your site URL)
 2. Deploy backend resources.
 3. Connect the function to an API Gateway/HTTP API route (`POST /contact`).
-4. Point `VITE_CONTACT_API_URL` to that route.
+4. Set `VITE_CONTACT_API_URL` to that route in every environment (local `.env.local`, CI/CD, and hosting platform runtime/build env vars).

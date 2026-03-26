@@ -53,8 +53,7 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
   return { ok: true };
 }
 
-const CONTACT_API_URL =
-  "https://45toznwvvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/";
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
 
 export function useContactForm() {
   const { t } = useTranslation();
@@ -131,6 +130,17 @@ export function useContactForm() {
     const validation = validateContactForm(formData, formStartTime);
     if (!validation.ok) {
       setFeedback({ type: "error", message: getValidationMessage(validation.message) });
+      return;
+    }
+
+    if (!CONTACT_API_URL?.trim()) {
+      setFeedback({
+        type: "error",
+        message: text(
+          "contact.form.errorMessage",
+          "Contact form is unavailable right now. Missing VITE_CONTACT_API_URL configuration.",
+        ),
+      });
       return;
     }
 
