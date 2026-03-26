@@ -53,7 +53,9 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
   return { ok: true };
 }
 
-const CONTACT_API_URL = (import.meta.env.VITE_CONTACT_API_URL as string | undefined)?.trim() || "/contact";
+const CONTACT_API_URL =
+  (import.meta.env.VITE_CONTACT_API_URL as string | undefined)?.trim() ||
+  "https://45toznwvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/";
 
 export function useContactForm() {
   const { t } = useTranslation();
