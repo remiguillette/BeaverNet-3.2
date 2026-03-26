@@ -7,6 +7,7 @@ type ContactFormData = {
   email: string;
   service: string;
   message: string;
+  company: string;
 };
 
 const INITIAL_FORM: ContactFormData = {
@@ -15,6 +16,7 @@ const INITIAL_FORM: ContactFormData = {
   email: "",
   service: "",
   message: "",
+  company: "",
 };
 
 type ValidationResult =
@@ -22,11 +24,13 @@ type ValidationResult =
   | { ok: false; message: string };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const MIN_SUBMIT_DELAY_MS = 3000;
+const SUBMIT_COOLDOWN_MS = 15000;
 
 function validateContactForm(data: ContactFormData, formStartTime: number): ValidationResult {
   const elapsed = Date.now() - formStartTime;
 
-  if (elapsed < 3000) {
+  if (elapsed < MIN_SUBMIT_DELAY_MS) {
     return { ok: false, message: "Please take a moment before submitting the form." };
   }
 
@@ -42,37 +46,30 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
     return { ok: false, message: "Message must be at least 10 characters." };
   }
 
-  if (data.message.length > 2000) {
-    return { ok: false, message: "Message must not exceed 2000 characters." };
+  if (data.firstName.length > 100 || data.lastName.length > 100 || data.email.length > 200 || data.message.length > 2000) {
+    return { ok: false, message: "Input is too long." };
   }
 
   return { ok: true };
 }
+
+const getApiEndpoint = () => {
+  const configured = import.meta.env.VITE_CONTACT_API_URL?.trim();
+  return configured || "/contact";
+};
 
 export function useContactForm() {
   const { t } = useTranslation();
   const [formData, setFormData] = useState<ContactFormData>(INITIAL_FORM);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [feedback, setFeedback] = useState<{ type: "success" | "error"; message: string } | null>(null);
-  const [formStartTime] = useState(Date.now());
+  const [formStartTime, setFormStartTime] = useState(Date.now());
 
   const disabled = useMemo(() => isSubmitting, [isSubmitting]);
 
   const text = (key: string, fallback: string) => {
     const value = t(key);
-
     return value === key ? fallback : value;
-  };
-
-  const getServiceLabel = (service: string) => {
-    const serviceLabelMap: Record<string, string> = {
-      "public-safety": text("contact.form.services.publicSafety", "Public Safety"),
-      francophone: text("contact.form.services.francophone", "Francophone Services"),
-      "health-safety": text("contact.form.services.healthSafety", "Health & Safety"),
-      "animal-aid": text("contact.form.services.animalAid", "Animal First Aid"),
-    };
-
-    return serviceLabelMap[service] ?? service;
   };
 
   const getValidationMessage = (validationMessage: string) => {
@@ -92,21 +89,44 @@ export function useContactForm() {
       return text("contact.form.validation.messageMin", validationMessage);
     }
 
-    if (validationMessage === "Message must not exceed 2000 characters.") {
-      return text("contact.form.validation.messageMax", validationMessage);
+    if (validationMessage === "Input is too long.") {
+      return text("contact.form.validation.messageMax", "Please shorten one or more fields.");
     }
 
     return validationMessage;
   };
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const resetForm = () => {
+    setFormData(INITIAL_FORM);
+    setFormStartTime(Date.now());
+  };
+
+  const hasCooldown = () => {
+    const lastSubmission = Number(localStorage.getItem("contact_form_last_submit") ?? "0");
+    return Date.now() - lastSubmission < SUBMIT_COOLDOWN_MS;
+  };
+
+  const setCooldown = () => {
+    localStorage.setItem("contact_form_last_submit", String(Date.now()));
   };
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     if (disabled) {
+      return;
+    }
+
+    if (hasCooldown()) {
+      setFeedback({
+        type: "error",
+        message: text("contact.form.validation.cooldown", "Please wait a few seconds before sending another message."),
+      });
       return;
     }
 
@@ -120,48 +140,24 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
-      const discordWebhookUrl = import.meta.env.VITE_DISCORD_WEBHOOK_URL?.trim();
-      const payload = {
-        ...formData,
-        formStartTime: String(formStartTime),
-        website: "",
-        url: "",
-        phone_hidden: "",
-      };
-
-      const response = await fetch(discordWebhookUrl || "/api/contact", {
+      const response = await fetch(getApiEndpoint(), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: discordWebhookUrl
-          ? JSON.stringify({
-              username: "Website Contact Form",
-              embeds: [
-                {
-                  title: text("contact.form.discord.title", "New contact form submission"),
-                  color: 5802624,
-                  fields: [
-                    { name: text("contact.form.firstName", "First Name"), value: formData.firstName, inline: true },
-                    { name: text("contact.form.lastName", "Last Name"), value: formData.lastName, inline: true },
-                    { name: text("contact.form.email", "Email Address"), value: formData.email, inline: false },
-                    {
-                      name: text("contact.form.service", "Service of Interest"),
-                      value: getServiceLabel(formData.service),
-                      inline: false,
-                    },
-                    { name: text("contact.form.message", "Message"), value: formData.message, inline: false },
-                  ],
-                },
-              ],
-              metadata: payload,
-            })
-          : JSON.stringify(payload),
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`.trim(),
+          email: formData.email,
+          message: `${formData.message}\n\nService: ${formData.service}`,
+          company: formData.company,
+          startedAt: formStartTime,
+        }),
       });
 
       if (!response.ok) {
         throw new Error("Request failed");
       }
 
-      setFormData(INITIAL_FORM);
+      setCooldown();
+      resetForm();
       setFeedback({
         type: "success",
         message: text("contact.form.successMessage", "Your message was sent successfully."),
