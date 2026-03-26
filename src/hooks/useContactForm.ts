@@ -54,8 +54,7 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
 }
 
 const CONTACT_API_URL =
-  (import.meta.env.VITE_CONTACT_API_URL as string | undefined)?.trim() ||
-  "https://45toznwvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/";
+  "https://45toznwvvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/";
 
 export function useContactForm() {
   const { t } = useTranslation();
@@ -142,6 +141,8 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
+      console.log("CONTACT_API_URL exact =", JSON.stringify(CONTACT_API_URL));
+
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
