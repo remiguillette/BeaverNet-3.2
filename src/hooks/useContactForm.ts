@@ -114,9 +114,6 @@ export function useContactForm() {
   };
 
   const handleSubmit = async (e: FormEvent) => {
-    alert("handleSubmit fired");
-    console.log("CONTACT_API_URL =", CONTACT_API_URL);
-
     e.preventDefault();
 
     if (disabled) {
@@ -141,8 +138,6 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
-      console.log("CONTACT_API_URL exact =", JSON.stringify(CONTACT_API_URL));
-
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -157,11 +152,7 @@ export function useContactForm() {
         }),
       });
 
-      console.log("response.status =", response.status);
-
       const raw = await response.text();
-      console.log("response.raw =", raw);
-
       const json = raw ? JSON.parse(raw) : {};
 
       if (!response.ok) {
@@ -175,7 +166,6 @@ export function useContactForm() {
         message: text("contact.form.successMessage", "Your message was sent successfully."),
       });
     } catch (err) {
-      console.error("handleSubmit error:", err);
       setFeedback({
         type: "error",
         message:
