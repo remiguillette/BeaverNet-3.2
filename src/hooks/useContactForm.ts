@@ -53,10 +53,7 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
   return { ok: true };
 }
 
-const getApiEndpoint = () => {
-  const configured = import.meta.env.VITE_CONTACT_API_URL?.trim();
-  return configured || "/contact";
-};
+const CONTACT_API_URL = "https://45toznwvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/";
 
 export function useContactForm() {
   const { t } = useTranslation();
@@ -140,20 +137,24 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
-      const response = await fetch(getApiEndpoint(), {
+      const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: `${formData.firstName} ${formData.lastName}`.trim(),
           email: formData.email,
-          message: `${formData.message}\n\nService: ${formData.service}`,
+          message: formData.message,
+          firstName: formData.firstName,
+          lastName: formData.lastName,
+          service: formData.service,
           website: formData.website,
-          startedAt: formStartTime,
         }),
       });
 
+      const json = await response.json();
+
       if (!response.ok) {
-        throw new Error("Request failed");
+        throw new Error(json?.error || "Erreur lors de l’envoi");
       }
 
       setCooldown();
