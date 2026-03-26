@@ -8,6 +8,12 @@
     "build": "vite build",
     "preview": "vite preview"
   },
+  "devDependencies": {
+  "@aws-amplify/backend": "...",
+  "@aws-amplify/backend-cli": "...",
+  "aws-cdk-lib": "...",
+  "typescript": "..." 
+  },
   "dependencies": {
     "lucide-react": "^1.6.0",
     "react": "^18.2.0",
