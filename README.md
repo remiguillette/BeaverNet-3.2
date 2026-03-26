@@ -54,7 +54,16 @@ The Lambda handler includes:
 
 1. Add the function secret in Amplify Gen 2 secrets:
    - `DISCORD_WEBHOOK_URL`
-   - `CONTACT_ALLOWED_ORIGIN` (for your site URL)
+   - `CONTACT_ALLOWED_ORIGINS` (comma-separated list of allowed web origins)
 2. Deploy backend resources.
 3. Connect the function to an API Gateway/HTTP API route (`POST /contact`).
 4. Set `VITE_CONTACT_API_URL` to that route in every environment (local `.env.local`, CI/CD, and hosting platform runtime/build env vars).
+
+Example (dev/stage/prod):
+
+```env
+CONTACT_ALLOWED_ORIGINS=http://localhost:5173,https://staging.example.com,https://www.example.com
+```
+
+Use the exact same key (`CONTACT_ALLOWED_ORIGINS`) in your Amplify environment variables and deployment configuration for each environment.
+
