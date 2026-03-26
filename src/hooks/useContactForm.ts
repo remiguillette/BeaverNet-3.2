@@ -115,6 +115,9 @@ export function useContactForm() {
   };
 
   const handleSubmit = async (e: FormEvent) => {
+    alert("handleSubmit fired");
+    console.log("CONTACT_API_URL =", CONTACT_API_URL);
+
     e.preventDefault();
 
     if (disabled) {
@@ -139,8 +142,6 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
-      console.log("CONTACT_API_URL =", CONTACT_API_URL);
-
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
