@@ -1,5 +1,4 @@
 import Header from "./layout/Header";
-import Footer from "./layout/Footer";
 import type { ServicePageData } from "../data/servicePages";
 import { useTranslation } from "../contexts/TranslationContext";
 
@@ -91,7 +90,6 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           </section>
         ) : null}
       </main>
-      <Footer />
     </>
   );
 }

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import { servicePages } from "../data/servicePages";
 import { useTranslation } from "../contexts/TranslationContext";
 
@@ -76,7 +75,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
