@@ -277,7 +277,7 @@ export const resources = {
     },
     about: {
       title: "About",
-      description: "This page presents the Website v3.2 project.",
+      description: "Official website of Rémi Guillette Groupe.",
     },
     notFound: {
       message: "Page not found.",
@@ -690,7 +690,7 @@ export const resources = {
     },
     about: {
       title: "À propos",
-      description: "Cette page présente le projet Website v3.2.",
+      description: "Site officiel du Groupe Rémi Guillette.",
     },
     notFound: {
       message: "Page introuvable.",

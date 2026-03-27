@@ -14,7 +14,7 @@ export default function About() {
       <Header />
       <main className="page-content">
         <h1>{text("about.title", "About")}</h1>
-        <p>{text("about.description", "This page presents the Website v3.2 project.")}</p>
+        <p>{text("about.description", "Official website of Rémi Guillette Groupe.")}</p>
       </main>
       <Footer />
     </>
