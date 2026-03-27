@@ -275,6 +275,144 @@ export const resources = {
         },
       },
     },
+    about: {
+      title: "About",
+      description: "This page presents the Website v3.2 project.",
+    },
+    notFound: {
+      message: "Page not found.",
+      homeLink: "Back to home",
+    },
+    privacyPolicy: {
+      hero: {
+        titleLead: "Privacy",
+        titleAccent: "Policy",
+        lastUpdated: "Last updated: March 25, 2026",
+      },
+      sections: [
+        {
+          title: "Introduction",
+          body: [
+            "Rémi Guillette Group (\"we\", \"our\", \"us\") is committed to protecting the privacy and personal information of our clients and users of our website. This privacy policy describes how we collect, use, disclose, and protect your personal information in accordance with Canada's Personal Information Protection and Electronic Documents Act (PIPEDA).",
+          ],
+        },
+        {
+          title: "Company Information",
+          body: [
+            "Legal Name: Rémi Guillette RG Groupe",
+            "Operating Name: Rémi Guillette Group",
+            "Website: remiguillette.ca",
+            "Email: info@remiguillette.ca",
+          ],
+        },
+        {
+          title: "What data do we collect?",
+          body: [
+            "We collect the following personal information when you use our services:",
+            "Personal information provided directly",
+            "Full name (first and last name)",
+            "Email address",
+            "Phone number",
+            "Mailing address",
+            "Information about your business or organization",
+            "Messages and communications you send to us",
+            "Information about requested services",
+            "Automatically collected data",
+            "IP address",
+            "Browser type and version",
+            "Operating system",
+            "Pages visited on our website",
+            "Date and time of visit",
+            "Session duration",
+            "Cookie and similar technology data",
+          ],
+        },
+        {
+          title: "Why are we collecting this information?",
+          body: [
+            "We use your personal information for the following purposes:",
+            "Provide our professional consulting services",
+            "Communicate with you about our services",
+            "Process your requests and respond to your inquiries",
+            "Improve our website and services",
+            "Comply with legal and regulatory obligations",
+            "Maintain the security of our systems",
+            "Analyze website usage for improvement",
+          ],
+        },
+        {
+          title: "How do we obtain consent?",
+          body: [
+            "We obtain your consent in several ways:",
+            "Explicit consent when submitting forms",
+            "Implied consent when using our services",
+            "Consent through acceptance of terms of use",
+            "Consent for cookies via our cookie banner",
+          ],
+        },
+        {
+          title: "Who do we share this information with?",
+          body: [
+            "We do not sell your personal information. We may share it with:",
+            "Third-party service providers who help us operate our website (AWS)",
+            "Legal or accounting professionals as needed",
+            "Government authorities when required by law",
+            "Business partners with your explicit consent",
+          ],
+        },
+        {
+          title: "International transfers",
+          body: [
+            "Our website is hosted by Amazon Web Services (AWS), and our domain services are managed by Amazon Web Services (AWS) in the us-east-1 region. Your data may be transferred to and stored in the United States.",
+            "AWS implements appropriate security measures to protect your data in accordance with international data protection standards.",
+          ],
+        },
+        {
+          title: "How do we protect data?",
+          body: [
+            "We implement various security measures:",
+            "Encryption of data in transit (SSL/TLS)",
+            "Limited access to personal information",
+            "Regular security monitoring",
+            "Staff training on data protection",
+            "Regular security system updates",
+            "Secure data backup",
+          ],
+        },
+        {
+          title: "Cookies and similar technologies",
+          body: [
+            "We use cookies to improve your experience on our website. These cookies may include session cookies, persistent cookies, and analytics cookies.",
+            "AWS also uses cookies for platform functionality. Please refer to AWS privacy policy for more information about their cookie usage.",
+          ],
+        },
+        {
+          title: "Your rights",
+          body: [
+            "Under PIPEDA, you have the right to:",
+            "Access your personal information",
+            "Correct inaccurate information",
+            "Withdraw your consent (subject to legal restrictions)",
+            "Request deletion of your data",
+            "File a complaint with the Privacy Commissioner of Canada",
+          ],
+        },
+        {
+          title: "Who should I contact if I have questions?",
+          body: [
+            "For any questions about this privacy policy or your personal information, contact us:",
+            "info@remiguillette.ca",
+          ],
+        },
+        {
+          title: "Changes to this policy",
+          body: [
+            "We reserve the right to modify this privacy policy at any time.",
+            "We will notify you of significant changes through a notice on our website or by email if you have provided your email address.",
+          ],
+        },
+      ],
+    },
   },
   fr: {
     footer: {
@@ -549,6 +687,144 @@ export const resources = {
           messageMax: "Le message ne doit pas dépasser 2000 caractères.",
         },
       },
+    },
+    about: {
+      title: "À propos",
+      description: "Cette page présente le projet Website v3.2.",
+    },
+    notFound: {
+      message: "Page introuvable.",
+      homeLink: "Retour à l'accueil",
+    },
+    privacyPolicy: {
+      hero: {
+        titleLead: "Politique de",
+        titleAccent: "confidentialité",
+        lastUpdated: "Mise à jour : 25 mars 2026",
+      },
+      sections: [
+        {
+          title: "Introduction",
+          body: [
+            "Le Groupe Rémi Guillette (« nous », « notre », « nos ») s’engage à protéger la vie privée et les renseignements personnels de ses clients et des utilisateurs de son site web. Cette politique de confidentialité décrit comment nous recueillons, utilisons, divulguons et protégeons vos renseignements personnels conformément à la Loi sur la protection des renseignements personnels et les documents électroniques (LPRPDE) du Canada.",
+          ],
+        },
+        {
+          title: "Informations sur l’entreprise",
+          body: [
+            "Nom légal : Rémi Guillette RG Groupe",
+            "Nom d’exploitation : Rémi Guillette Group",
+            "Site web : remiguillette.ca",
+            "Courriel : info@remiguillette.ca",
+          ],
+        },
+        {
+          title: "Quelles données recueillons-nous?",
+          body: [
+            "Nous recueillons les renseignements personnels suivants lorsque vous utilisez nos services :",
+            "Renseignements fournis directement",
+            "Nom complet (prénom et nom de famille)",
+            "Adresse courriel",
+            "Numéro de téléphone",
+            "Adresse postale",
+            "Information sur votre entreprise ou organisation",
+            "Messages et communications que vous nous envoyez",
+            "Information sur les services demandés",
+            "Données recueillies automatiquement",
+            "Adresse IP",
+            "Type et version du navigateur",
+            "Système d’exploitation",
+            "Pages visitées sur notre site web",
+            "Date et heure de la visite",
+            "Durée de la session",
+            "Données des cookies et technologies similaires",
+          ],
+        },
+        {
+          title: "Pourquoi recueillons-nous ces informations?",
+          body: [
+            "Nous utilisons vos renseignements personnels aux fins suivantes :",
+            "Fournir nos services-conseils professionnels",
+            "Communiquer avec vous au sujet de nos services",
+            "Traiter vos demandes et répondre à vos questions",
+            "Améliorer notre site web et nos services",
+            "Respecter les obligations légales et réglementaires",
+            "Maintenir la sécurité de nos systèmes",
+            "Analyser l’utilisation du site web pour l’amélioration continue",
+          ],
+        },
+        {
+          title: "Comment obtenons-nous le consentement?",
+          body: [
+            "Nous obtenons votre consentement de plusieurs façons :",
+            "Consentement explicite lors de la soumission de formulaires",
+            "Consentement implicite lors de l’utilisation de nos services",
+            "Consentement par l’acceptation des conditions d’utilisation",
+            "Consentement pour les cookies via notre bannière de cookies",
+          ],
+        },
+        {
+          title: "Avec qui partageons-nous ces informations?",
+          body: [
+            "Nous ne vendons pas vos renseignements personnels. Nous pouvons les partager avec :",
+            "Des fournisseurs tiers qui nous aident à exploiter notre site web (AWS)",
+            "Des professionnels juridiques ou comptables au besoin",
+            "Des autorités gouvernementales lorsque la loi l’exige",
+            "Des partenaires d’affaires avec votre consentement explicite",
+          ],
+        },
+        {
+          title: "Transferts internationaux",
+          body: [
+            "Notre site web est hébergé par Amazon Web Services (AWS), et nos services de domaine sont gérés par Amazon Web Services (AWS) dans la région us-east-1. Vos données peuvent être transférées et stockées aux États-Unis.",
+            "AWS met en place des mesures de sécurité appropriées pour protéger vos données conformément aux normes internationales de protection des données.",
+          ],
+        },
+        {
+          title: "Comment protégeons-nous les données?",
+          body: [
+            "Nous appliquons diverses mesures de sécurité :",
+            "Chiffrement des données en transit (SSL/TLS)",
+            "Accès limité aux renseignements personnels",
+            "Surveillance régulière de la sécurité",
+            "Formation du personnel sur la protection des données",
+            "Mises à jour régulières des systèmes de sécurité",
+            "Sauvegarde sécurisée des données",
+          ],
+        },
+        {
+          title: "Cookies et technologies similaires",
+          body: [
+            "Nous utilisons des cookies pour améliorer votre expérience sur notre site web. Ces cookies peuvent inclure des cookies de session, des cookies persistants et des cookies d’analyse.",
+            "AWS utilise également des cookies pour les fonctionnalités de la plateforme. Veuillez consulter la politique de confidentialité d’AWS pour plus d’informations sur leur utilisation des cookies.",
+          ],
+        },
+        {
+          title: "Vos droits",
+          body: [
+            "En vertu de la LPRPDE, vous avez le droit de :",
+            "Accéder à vos renseignements personnels",
+            "Corriger des renseignements inexacts",
+            "Retirer votre consentement (sous réserve de restrictions légales)",
+            "Demander la suppression de vos données",
+            "Déposer une plainte auprès du Commissariat à la protection de la vie privée du Canada",
+          ],
+        },
+        {
+          title: "Qui contacter en cas de questions?",
+          body: [
+            "Pour toute question sur cette politique de confidentialité ou vos renseignements personnels, contactez-nous :",
+            "info@remiguillette.ca",
+          ],
+        },
+        {
+          title: "Modifications de cette politique",
+          body: [
+            "Nous nous réservons le droit de modifier cette politique de confidentialité en tout temps.",
+            "Nous vous informerons des changements importants au moyen d’un avis sur notre site web ou par courriel si vous avez fourni votre adresse courriel.",
+          ],
+        },
+      ],
     },
   },
 } as const;
