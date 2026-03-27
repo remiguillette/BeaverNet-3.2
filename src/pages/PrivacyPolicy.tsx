@@ -131,6 +131,24 @@ const sections: PrivacySection[] = [
   },
 ];
 
+function renderFirstWordBlueRestOrange(value: string) {
+  const [firstWord, ...remainingWords] = value.trim().split(/\s+/);
+
+  if (!firstWord) return null;
+
+  return (
+    <>
+      <span className="accent-blue">{firstWord}</span>
+      {remainingWords.length > 0 ? (
+        <>
+          {" "}
+          <span className="accent-orange">{remainingWords.join(" ")}</span>
+        </>
+      ) : null}
+    </>
+  );
+}
+
 export default function PrivacyPolicy() {
   const { t } = useTranslation();
   const text = (key: string, fallback: string) => {
@@ -163,7 +181,7 @@ export default function PrivacyPolicy() {
           <div className="container privacy-grid">
             {translatedSections.map((section, sectionIndex) => (
               <article key={`${section.title}-${sectionIndex}`} className="privacy-card">
-                <h2>{section.title}</h2>
+                <h2>{renderFirstWordBlueRestOrange(section.title)}</h2>
                 {section.body.map((paragraph, paragraphIndex) => (
                   <p key={`${sectionIndex}-${paragraphIndex}`}>{paragraph}</p>
                 ))}
