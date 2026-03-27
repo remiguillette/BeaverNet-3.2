@@ -65,9 +65,9 @@ export default function Contact() {
                     </>
                   ) : null}
                 </h2>
-                <p>{text("contact.hoursLine1", "24 hours a day, 7 days a week, year-round")}</p>
-                <p>{text("contact.hoursLine2", "Continuous availability")}</p>
-                <p>{text("contact.hoursLine3", "Canadian statutory holidays: on-call")}</p>
+                <p>{text("contact.hoursLine1", "24/7, year-round")}</p>
+                <p>{text("contact.hoursLine2", "Services available at all times")}</p>
+                <p>{text("contact.hoursLine3", "Canadian statutory holidays: on-call service")}</p>
               </article>
             </section>
 

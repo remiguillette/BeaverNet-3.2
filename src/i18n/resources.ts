@@ -238,9 +238,9 @@ export const resources = {
       phone: "613-501-2160",
       email: "info@remiguillette.ca",
       hours: "Operating Hours",
-      hoursLine1: "24 hours a day, 7 days a week, year-round",
-      hoursLine2: "Continuous availability",
-      hoursLine3: "Canadian statutory holidays: on-call",
+      hoursLine1: "24/7, year-round",
+      hoursLine2: "Services available at all times",
+      hoursLine3: "Canadian statutory holidays: on-call service",
       form: {
         title: "Send us a message",
         firstName: "First Name",
@@ -651,10 +651,10 @@ export const resources = {
       address: "6388 Hawkins Street, Apt. 307, Niagara Falls, Ontario L2G 1P3",
       phone: "613-501-2160",
       email: "info@remiguillette.ca",
-      hours: "Toujours disponibles",
-      hoursLine1: "24/7, toute l’année",
-      hoursLine2: "Nous sommes disponibles en tout temps",
-      hoursLine3: "Jours fériés : sur appel",
+      hours: "Heures d’exploitation",
+      hoursLine1: "24 h / 24, 7 jours / 7, toute l’année",
+      hoursLine2: "Services disponibles en tout temps",
+      hoursLine3: "Jours fériés canadiens : service sur appel",
       form: {
         title: "Envoyez-nous un message",
         firstName: "Prénom",
@@ -700,8 +700,8 @@ export const resources = {
     },
     privacyPolicy: {
       hero: {
-        titleLead: "Politique de",
-        titleAccent: "confidentialité",
+        titleLead: "Politique",
+        titleAccent: "de confidentialité",
         lastUpdated: "Mise à jour : 25 mars 2026",
       },
       sections: [
