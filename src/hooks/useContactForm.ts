@@ -55,6 +55,7 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
 }
 
 const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
+console.log("[ContactForm Debug] VITE_CONTACT_API_URL =", CONTACT_API_URL);
 
 export function useContactForm() {
   const { t } = useTranslation();
@@ -157,6 +158,11 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
+      console.log("[ContactForm Debug] about to fetch", {
+        CONTACT_API_URL,
+        windowOrigin: window.location.origin,
+        pathname: window.location.pathname,
+      });
       console.log(`${DEBUG_LOG_PREFIX} sending request`, {
         endpoint: CONTACT_API_URL,
         firstName: formData.firstName,
@@ -180,7 +186,12 @@ export function useContactForm() {
       });
 
       const raw = await response.text();
-      const json = raw ? JSON.parse(raw) : {};
+      let json: any = {};
+      try {
+        json = raw ? JSON.parse(raw) : {};
+      } catch {
+        json = { raw };
+      }
 
       if (!response.ok) {
         throw new Error(json?.error || `HTTP ${response.status}`);
