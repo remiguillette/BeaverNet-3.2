@@ -871,7 +871,7 @@ main {
 
 .privacy-card p {
   margin: 0 0 0.55rem;
-  color: #ddd;
+  color: #f89422;
   line-height: 1.65;
 }
 
@@ -910,7 +910,7 @@ main {
 
 .contact-page-header p {
   margin: 1rem 0 0;
-  color: #e8e8e8;
+  color: #f89422;
   font-size: clamp(1rem, 2.2vw, 1.2rem);
   line-height: 1.5;
 }
@@ -947,7 +947,7 @@ main {
 
 .contact-info-card p {
   margin: 0.35rem 0;
-  color: #f4f4f4;
+  color: #f89422;
 }
 
 .contact-form-shell {
@@ -966,7 +966,7 @@ main {
 
 .contact-form-heading p {
   margin: 0.65rem 0 0;
-  color: #f1f1f1;
+  color: #f89422;
   line-height: 1.5;
 }
 
@@ -1001,7 +1001,7 @@ main {
 .contact-form-label {
   display: grid;
   gap: 0.45rem;
-  color: #f5f5f5;
+  color: #f89422;
   font-size: 0.94rem;
 }
 
@@ -1009,10 +1009,14 @@ main {
   width: 100%;
   background: #000;
   border: 1px solid rgba(248, 148, 34, 0.5);
-  color: #fff;
+  color: #f89422;
   border-radius: 10px;
   padding: 0.72rem 0.88rem;
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-form-field::placeholder {
+  color: rgba(248, 148, 34, 0.8);
 }
 
 .contact-form-textarea {
