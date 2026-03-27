@@ -3,12 +3,27 @@ import Footer from "../components/layout/Footer";
 import { ContactForm } from "../components/contact/ContactForm";
 import { useTranslation } from "../contexts/TranslationContext";
 
+function splitTitle(title: string) {
+  const [firstWord, ...rest] = title.trim().split(/\s+/);
+
+  if (!firstWord) {
+    return { firstWord: "", restOfTitle: "" };
+  }
+
+  return {
+    firstWord,
+    restOfTitle: rest.join(" "),
+  };
+}
+
 export default function Contact() {
   const { t } = useTranslation();
   const text = (key: string, fallback: string) => {
     const value = t(key);
     return value === key ? fallback : value;
   };
+  const infoTitle = splitTitle(text("contact.info", "Contact information"));
+  const hoursTitle = splitTitle(text("contact.hours", "Operating Hours"));
 
   return (
     <>
@@ -23,7 +38,15 @@ export default function Contact() {
           <div className="contact-page-layout">
             <section className="contact-info-stack">
               <article className="contact-info-card">
-                <h2>{text("contact.info", "Contact information")}</h2>
+                <h2>
+                  <span className="accent-blue">{infoTitle.firstWord}</span>
+                  {infoTitle.restOfTitle ? (
+                    <>
+                      {" "}
+                      <span className="accent-orange">{infoTitle.restOfTitle}</span>
+                    </>
+                  ) : null}
+                </h2>
                 <p>{text("footer.contact.line1", "6388 Hawkins Street")}</p>
                 <p>{text("footer.contact.line2", "Apt. 307")}</p>
                 <p>{text("footer.contact.line3", "Niagara Falls, Ontario")}</p>
@@ -33,7 +56,15 @@ export default function Contact() {
               </article>
 
               <article className="contact-info-card">
-                <h2>{text("contact.hours", "Hours")}</h2>
+                <h2>
+                  <span className="accent-blue">{hoursTitle.firstWord}</span>
+                  {hoursTitle.restOfTitle ? (
+                    <>
+                      {" "}
+                      <span className="accent-orange">{hoursTitle.restOfTitle}</span>
+                    </>
+                  ) : null}
+                </h2>
                 <p>{text("contact.hoursLine1", "24 hours a day, 7 days a week, year-round")}</p>
                 <p>{text("contact.hoursLine2", "Continuous availability")}</p>
                 <p>{text("contact.hoursLine3", "Canadian statutory holidays: on-call")}</p>

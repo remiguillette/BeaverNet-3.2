@@ -1,9 +1,23 @@
 import { useEffect, useRef } from "react";
-import { ShieldCheck, Sparkles } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { useContactForm } from "../../hooks/useContactForm";
+
+function splitTitle(title: string) {
+  const [firstWord, ...rest] = title.trim().split(/\s+/);
+
+  if (!firstWord) {
+    return { firstWord: "", restOfTitle: "" };
+  }
+
+  return {
+    firstWord,
+    restOfTitle: rest.join(" "),
+  };
+}
 
 export function ContactForm() {
   const { formData, disabled, isSubmitting, feedback, text, handleInputChange, handleSubmit } = useContactForm();
+  const formTitle = splitTitle(text("contact.form.title", "Send us a message"));
 
   const submitButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -29,12 +43,15 @@ export function ContactForm() {
   return (
     <div className="contact-form-shell">
       <div className="contact-form-heading">
-        <p className="contact-form-kicker">
-          <Sparkles size={16} aria-hidden="true" />
-          {text("contact.form.kicker", "Secure contact pipeline")}
-        </p>
-        <h2>{text("contact.form.title", "Send us a message")}</h2>
-        <p>{text("contact.form.subtitle", "Your request is validated and processed securely by our backend.")}</p>
+        <h2>
+          <span className="accent-blue">{formTitle.firstWord}</span>
+          {formTitle.restOfTitle ? (
+            <>
+              {" "}
+              <span className="accent-orange">{formTitle.restOfTitle}</span>
+            </>
+          ) : null}
+        </h2>
       </div>
 
       <form onSubmit={handleSubmit} className="contact-form-grid" noValidate>
