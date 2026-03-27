@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import { CarFront, FileText, Map, PawPrint, Shield, type LucideIcon } from "lucide-react";
 import Header from "../components/layout/Header";
 import { servicePages } from "../data/servicePages";
 import { useTranslation } from "../contexts/TranslationContext";
@@ -25,6 +26,33 @@ export default function Home() {
     );
   };
 
+  const servicePageByKey = servicePages.reduce<Record<string, (typeof servicePages)[number]>>(
+    (accumulator, servicePage) => {
+      accumulator[servicePage.key] = servicePage;
+      return accumulator;
+    },
+    {},
+  );
+
+  type HomeCard = {
+    key: string;
+    icon: LucideIcon;
+    path?: string;
+    externalUrl?: string;
+  };
+
+  const homeCards: HomeCard[] = [
+    { key: "publicSafety", icon: Shield, path: servicePageByKey.publicSafety?.path },
+    { key: "animalFirstAid", icon: PawPrint, path: servicePageByKey.animalFirstAid?.path },
+    { key: "healthSafety", icon: Map, path: servicePageByKey.healthSafety?.path },
+    { key: "francophoneServices", icon: FileText, path: servicePageByKey.francophoneServices?.path },
+    {
+      key: "beaverMto",
+      icon: CarFront,
+      externalUrl: "https://www.ontario.ca/page/driver-and-vehicle-services",
+    },
+  ];
+
   return (
     <>
       <Header />
@@ -40,19 +68,41 @@ export default function Home() {
         <section className="sectors">
           <div className="container">
             <div className="card-grid">
-              {servicePages.map((servicePage) => {
-                const Icon = servicePage.homeIcon;
+              {homeCards.map((card) => {
+                const Icon = card.icon;
                 const translatedTitle = text(
-                  `home.sectors.items.${servicePage.key}`,
-                  servicePage.homeTitle,
+                  `home.sectors.items.${card.key}`,
+                  card.key,
                 );
+                const ariaLabel = `${text("home.sectors.viewAriaPrefix", "View")} ${translatedTitle}`;
+                const cardClasses = "sector-card accent-orange-card";
+
+                if (card.externalUrl) {
+                  return (
+                    <a
+                      key={card.key}
+                      href={card.externalUrl}
+                      className={cardClasses}
+                      aria-label={ariaLabel}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Icon className="sector-icon accent-orange" aria-hidden="true" />
+                      <h3>{renderFirstWordBlue(translatedTitle)}</h3>
+                    </a>
+                  );
+                }
+
+                if (!card.path) {
+                  return null;
+                }
 
                 return (
                   <Link
-                    key={servicePage.path}
-                    to={servicePage.path}
-                    className="sector-card accent-orange-card"
-                    aria-label={`${text("home.sectors.viewAriaPrefix", "View")} ${translatedTitle}`}
+                    key={card.key}
+                    to={card.path}
+                    className={cardClasses}
+                    aria-label={ariaLabel}
                   >
                     <Icon className="sector-icon accent-orange" aria-hidden="true" />
                     <h3>{renderFirstWordBlue(translatedTitle)}</h3>
