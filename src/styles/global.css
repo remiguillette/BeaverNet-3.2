@@ -371,6 +371,11 @@ footer {
   padding: 0.5rem 1rem;
 }
 
+.header-nav .border-gradient-button,
+.site-footer-contact-button.border-gradient-button {
+  color: var(--accent-orange);
+}
+
 .site-footer-social-heading {
   margin: 0 0 0.75rem;
   font-size: 1.35rem;
@@ -385,18 +390,6 @@ footer {
 .site-footer-social-icon {
   width: 1.5rem;
   height: 1.5rem;
-}
-
-.site-footer-social-text {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 1.7rem;
-  height: 1.7rem;
-  font-size: 0.85rem;
-  font-weight: 700;
-  border: 1px solid currentColor;
-  border-radius: 999px;
 }
 
 .site-footer-registration {
@@ -670,12 +663,8 @@ main {
   margin-bottom: 0.75rem;
 }
 
-.footer-contact-button.border-gradient-button {
-  color: #fff;
-}
-
 .footer-contact-button.border-gradient-button:hover {
-  color: #fff;
+  color: var(--accent-orange);
   filter: brightness(1.15);
 }
 
