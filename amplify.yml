@@ -1,5 +1,9 @@
 version: 1
 
+env:
+  variables:
+    VITE_CONTACT_API_URL: https://45toznwvvz6wjbsg72cvgx5gmq0nobqw.lambda-url.ca-central-1.on.aws/
+
 frontend:
   phases:
     preBuild:
