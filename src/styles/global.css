@@ -168,31 +168,40 @@ footer {
 
 @supports ((background-clip: text) or (-webkit-background-clip: text)) {
   .ontario-pride-text.is-animated {
-    background-image: linear-gradient(90deg, #f89422 0%, #f89422 100%);
+    background-image: linear-gradient(
+      115deg,
+      #f89422 0%,
+      #f89422 22%,
+      #00693c 40%,
+      #ffffff 52%,
+      #00693c 64%,
+      #f89422 82%,
+      #f89422 100%
+    );
+    background-size: 250% 100%;
+    background-position: 0% 50%;
     background-clip: text;
     -webkit-background-clip: text;
     color: transparent;
     -webkit-text-fill-color: transparent;
-    animation: ontario-pride-color-cycle 10s ease-in-out infinite;
+    animation: ontario-pride-wave 5.5s ease-in-out infinite;
   }
 }
 
-@keyframes ontario-pride-color-cycle {
-  0%,
-  35% {
-    background-image: linear-gradient(90deg, #f89422 0%, #f89422 100%);
+@keyframes ontario-pride-wave {
+  0% {
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(248, 148, 34, 0.2));
   }
 
-  55% {
-    background-image: linear-gradient(90deg, #00693c 0%, #00693c 100%);
-  }
-
-  75% {
-    background-image: linear-gradient(90deg, #ffffff 0%, #ffffff 100%);
+  50% {
+    background-position: 100% 50%;
+    filter: drop-shadow(0 0 0.2rem rgba(0, 105, 60, 0.35));
   }
 
   100% {
-    background-image: linear-gradient(90deg, #f89422 0%, #f89422 100%);
+    background-position: 0% 50%;
+    filter: drop-shadow(0 0 0 rgba(248, 148, 34, 0.2));
   }
 }
 
