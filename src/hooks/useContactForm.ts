@@ -2,7 +2,6 @@ import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import { useTranslation } from "../contexts/TranslationContext";
 
 const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
-console.log("[ContactForm Debug] VITE_CONTACT_API_URL =", CONTACT_API_URL);
 
 type ContactFormData = {
   firstName: string;
@@ -29,7 +28,6 @@ type ValidationResult =
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const MIN_SUBMIT_DELAY_MS = 3000;
 const SUBMIT_COOLDOWN_MS = 15000;
-const DEBUG_LOG_PREFIX = "[ContactForm Debug]";
 
 function validateContactForm(data: ContactFormData, formStartTime: number): ValidationResult {
   const elapsed = Date.now() - formStartTime;
@@ -116,18 +114,12 @@ export function useContactForm() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(`${DEBUG_LOG_PREFIX} handleSubmit triggered`, {
-      timestamp: new Date().toISOString(),
-      isSubmitting,
-    });
 
     if (disabled) {
-      console.log(`${DEBUG_LOG_PREFIX} submit blocked because form is currently disabled`);
       return;
     }
 
     if (hasCooldown()) {
-      console.log(`${DEBUG_LOG_PREFIX} submit blocked by cooldown`);
       setFeedback({
         type: "error",
         message: text("contact.form.validation.cooldown", "Please wait a few seconds before sending another message."),
@@ -137,13 +129,11 @@ export function useContactForm() {
 
     const validation = validateContactForm(formData, formStartTime);
     if (!validation.ok) {
-      console.log(`${DEBUG_LOG_PREFIX} validation failed`, { reason: validation.message });
       setFeedback({ type: "error", message: getValidationMessage(validation.message) });
       return;
     }
 
     if (!CONTACT_API_URL?.trim()) {
-      console.log(`${DEBUG_LOG_PREFIX} submit blocked: missing VITE_CONTACT_API_URL`);
       setFeedback({
         type: "error",
         message: text(
@@ -158,19 +148,6 @@ export function useContactForm() {
     setFeedback(null);
 
     try {
-      console.log("[ContactForm Debug] about to fetch", {
-        CONTACT_API_URL,
-        windowOrigin: window.location.origin,
-        pathname: window.location.pathname,
-      });
-      console.log(`${DEBUG_LOG_PREFIX} sending request`, {
-        endpoint: CONTACT_API_URL,
-        firstName: formData.firstName,
-        lastName: formData.lastName,
-        email: formData.email,
-        service: formData.service,
-        messageLength: formData.message.length,
-      });
       const response = await fetch(CONTACT_API_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -197,10 +174,6 @@ export function useContactForm() {
         throw new Error(json?.error || `HTTP ${response.status}`);
       }
 
-      console.log(`${DEBUG_LOG_PREFIX} request succeeded`, {
-        status: response.status,
-        statusText: response.statusText,
-      });
       setCooldown();
       resetForm();
       setFeedback({
@@ -208,9 +181,6 @@ export function useContactForm() {
         message: text("contact.form.successMessage", "Your message was sent successfully."),
       });
     } catch (err) {
-      console.log(`${DEBUG_LOG_PREFIX} request failed`, {
-        error: err instanceof Error ? err.message : err,
-      });
       setFeedback({
         type: "error",
         message:
