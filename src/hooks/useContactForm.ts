@@ -1,6 +1,9 @@
 import { useMemo, useState, type ChangeEvent, type FormEvent } from "react";
 import { useTranslation } from "../contexts/TranslationContext";
 
+const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
+console.log("[ContactForm Debug] VITE_CONTACT_API_URL =", CONTACT_API_URL);
+
 type ContactFormData = {
   firstName: string;
   lastName: string;
@@ -53,9 +56,6 @@ function validateContactForm(data: ContactFormData, formStartTime: number): Vali
 
   return { ok: true };
 }
-
-const CONTACT_API_URL = import.meta.env.VITE_CONTACT_API_URL;
-console.log("[ContactForm Debug] VITE_CONTACT_API_URL =", CONTACT_API_URL);
 
 export function useContactForm() {
   const { t } = useTranslation();
