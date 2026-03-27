@@ -38,14 +38,14 @@ export const resources = {
     },
     home: {
       hero: {
-        title: "Innovative solutions for your business",
+        title: "",
       },
       sectors: {
         viewAriaPrefix: "View",
         items: {
           publicSafety: "BeaverPatch",
           francophoneServices: "BeaverDoc",
-          healthSafety: "has determined",
+          healthSafety: "must be determined",
           animalFirstAid: "BeaverPaws",
         },
       },
@@ -434,14 +434,14 @@ export const resources = {
     },
     home: {
       hero: {
-        title: "Solutions innovantes pour votre entreprise",
+        title: "",
       },
       sectors: {
         viewAriaPrefix: "Voir",
         items: {
           publicSafety: "BeaverPatch",
           francophoneServices: "BeaverDoc",
-          healthSafety: "a été déterminé",
+          healthSafety: "doit être déterminé",
           animalFirstAid: "BeaverPaws",
         },
       },
