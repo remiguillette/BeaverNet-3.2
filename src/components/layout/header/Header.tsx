@@ -31,19 +31,19 @@ export const Header = () => {
           title={t("header.brand.title")}
         />
 
+        <HeaderAlert
+          title={t("header.alert.title")}
+          code={t("header.alert.code")}
+          timestamp={t("header.alert.timestamp")}
+          location={t("header.alert.location")}
+        />
+
         <HeaderNav
           navAriaLabel={t("header.nav.mainAria")}
           toggleAriaLabel={t("header.nav.languageToggleAria")}
           toggleLabel={t("header.nav.languageToggleLabel")}
           buttonRef={buttonRef}
           onToggleLanguage={toggleLanguage}
-        />
-
-        <HeaderAlert
-          title={t("header.alert.title")}
-          code={t("header.alert.code")}
-          timestamp={t("header.alert.timestamp")}
-          location={t("header.alert.location")}
         />
       </div>
     </header>
