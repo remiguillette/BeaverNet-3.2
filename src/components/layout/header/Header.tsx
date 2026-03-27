@@ -23,6 +23,14 @@ export const Header = () => {
   return (
     <header className="site-header" role="banner">
       <div className="site-header-inner">
+        <HeaderBrand
+          isLoaded={isLoaded}
+          logoSrc={beaverLogo}
+          homeAriaLabel={t("header.brand.homeAria")}
+          logoAlt={t("header.brand.logoAlt")}
+          title={t("header.brand.title")}
+        />
+
         <HeaderNav
           navAriaLabel={t("header.nav.mainAria")}
           toggleAriaLabel={t("header.nav.languageToggleAria")}
@@ -36,14 +44,6 @@ export const Header = () => {
           code={t("header.alert.code")}
           timestamp={t("header.alert.timestamp")}
           location={t("header.alert.location")}
-        />
-
-        <HeaderBrand
-          isLoaded={isLoaded}
-          logoSrc={beaverLogo}
-          homeAriaLabel={t("header.brand.homeAria")}
-          logoAlt={t("header.brand.logoAlt")}
-          title={t("header.brand.title")}
         />
       </div>
     </header>
