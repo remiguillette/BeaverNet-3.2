@@ -24,15 +24,19 @@ export default function Contact() {
             <section className="contact-info-stack">
               <article className="contact-info-card">
                 <h2>{text("contact.info", "Contact information")}</h2>
-                <p>{text("contact.address", "Ontario, Canada")}</p>
-                <p>{text("contact.phone", "+1 (555) 123-4567")}</p>
+                <p>{text("footer.contact.line1", "6388 Hawkins Street")}</p>
+                <p>{text("footer.contact.line2", "Apt. 307")}</p>
+                <p>{text("footer.contact.line3", "Niagara Falls, Ontario")}</p>
+                <p>{text("footer.contact.line4", "L2G 1P3")}</p>
+                <p>{text("contact.phone", "613-501-2160")}</p>
                 <p>{text("contact.email", "contact@example.com")}</p>
               </article>
 
               <article className="contact-info-card">
                 <h2>{text("contact.hours", "Hours")}</h2>
-                <p>{text("contact.hoursLine1", "24/7 all year")}</p>
-                <p>{text("contact.hoursLine2", "Available anytime")}</p>
+                <p>{text("contact.hoursLine1", "24 hours a day, 7 days a week, year-round")}</p>
+                <p>{text("contact.hoursLine2", "Continuous availability")}</p>
+                <p>{text("contact.hoursLine3", "Canadian statutory holidays: on-call")}</p>
               </article>
             </section>
 
