@@ -57,7 +57,7 @@ export const resources = {
     servicePage: {
       sections: {
         services: "Our services",
-        legal: "Legal information",
+        legalAnimalServices: "Legal Information for Animal Services",
       },
       services: {
         publicSafety: {
@@ -317,7 +317,7 @@ export const resources = {
     servicePage: {
       sections: {
         services: "Nos services",
-        legal: "Information légale",
+        legalAnimalServices: "Information légale pour les services animaliers",
       },
       services: {
         publicSafety: {

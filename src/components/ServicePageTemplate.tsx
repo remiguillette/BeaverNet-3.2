@@ -16,6 +16,8 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
   };
   const serviceBaseKey = `servicePage.services.${service.key}`;
 
+  const showAnimalLegalSection = service.key === "animalFirstAid";
+
   return (
     <>
       <Header />
@@ -58,12 +60,18 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           </div>
         </section>
 
-        <section className="service-legal">
-          <div className="container">
-            <h2>{text("servicePage.sections.legal", "Information légale")}</h2>
-            <p>{text(`${serviceBaseKey}.legalText`, service.legalText)}</p>
-          </div>
-        </section>
+        {showAnimalLegalSection ? (
+          <section className="service-legal">
+            <div className="container">
+              <h2>
+                {text(
+                  "servicePage.sections.legalAnimalServices",
+                  "Legal Information for Animal Services",
+                )}
+              </h2>
+            </div>
+          </section>
+        ) : null}
       </main>
       <Footer />
     </>
