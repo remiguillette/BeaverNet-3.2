@@ -1,5 +1,6 @@
 import Header from "../components/layout/Header";
 import Footer from "../components/layout/Footer";
+import { useTranslation } from "../contexts/TranslationContext";
 
 type PrivacySection = {
   title: string;
@@ -131,6 +132,19 @@ const sections: PrivacySection[] = [
 ];
 
 export default function PrivacyPolicy() {
+  const { t } = useTranslation();
+  const text = (key: string, fallback: string) => {
+    const value = t(key);
+    return value === key ? fallback : value;
+  };
+
+  const translatedSections = sections.map((section, sectionIndex) => ({
+    title: text(`privacyPolicy.sections.${sectionIndex}.title`, section.title),
+    body: section.body.map((paragraph, paragraphIndex) =>
+      text(`privacyPolicy.sections.${sectionIndex}.body.${paragraphIndex}`, paragraph),
+    ),
+  }));
+
   return (
     <>
       <Header />
@@ -138,20 +152,20 @@ export default function PrivacyPolicy() {
         <section className="privacy-hero">
           <div className="container">
             <h1>
-              <span className="accent-blue">Politique de</span>{" "}
-              <span className="accent-orange">confidentialité / Privacy Policy</span>
+              <span className="accent-blue">{text("privacyPolicy.hero.titleLead", "Privacy")}</span>{" "}
+              <span className="accent-orange">{text("privacyPolicy.hero.titleAccent", "Policy")}</span>
             </h1>
-            <p>Mise à jour / Last updated: March 25, 2026</p>
+            <p>{text("privacyPolicy.hero.lastUpdated", "Last updated: March 25, 2026")}</p>
           </div>
         </section>
 
         <section className="privacy-sections">
           <div className="container privacy-grid">
-            {sections.map((section) => (
-              <article key={section.title} className="privacy-card">
+            {translatedSections.map((section, sectionIndex) => (
+              <article key={`${section.title}-${sectionIndex}`} className="privacy-card">
                 <h2>{section.title}</h2>
-                {section.body.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
+                {section.body.map((paragraph, paragraphIndex) => (
+                  <p key={`${sectionIndex}-${paragraphIndex}`}>{paragraph}</p>
                 ))}
               </article>
             ))}
