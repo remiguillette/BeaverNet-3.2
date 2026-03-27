@@ -14,6 +14,21 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
 
     return value === key ? fallback : value;
   };
+  const renderFirstWordBlue = (value: string) => {
+    const [firstWord, ...remainingWords] = value.trim().split(/\s+/);
+
+    return (
+      <>
+        <span className="accent-blue">{firstWord}</span>
+        {remainingWords.length > 0 ? (
+          <>
+            {" "}
+            <span className="accent-orange">{remainingWords.join(" ")}</span>
+          </>
+        ) : null}
+      </>
+    );
+  };
   const serviceBaseKey = `servicePage.services.${service.key}`;
 
   const showAnimalLegalSection = service.key === "animalFirstAid";
@@ -24,18 +39,18 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
       <main className="service-page">
         <section className="service-hero">
           <div className="container">
-            <h1>{text(`${serviceBaseKey}.pageTitle`, service.pageTitle)}</h1>
+            <h1>{renderFirstWordBlue(text(`${serviceBaseKey}.pageTitle`, service.pageTitle))}</h1>
             <p>{text(`${serviceBaseKey}.intro`, service.intro)}</p>
           </div>
         </section>
 
         <section className="service-section">
           <div className="container">
-            <h2>{text("servicePage.sections.services", "Nos services")}</h2>
+            <h2>{renderFirstWordBlue(text("servicePage.sections.services", "Nos services"))}</h2>
             <div className="service-card-grid">
               {service.cards.map((card, cardIndex) => (
                 <article key={card.title} className="service-detail-card">
-                  <h3>{text(`${serviceBaseKey}.cards.${cardIndex}.title`, card.title)}</h3>
+                  <h3>{renderFirstWordBlue(text(`${serviceBaseKey}.cards.${cardIndex}.title`, card.title))}</h3>
                   <p>{text(`${serviceBaseKey}.cards.${cardIndex}.description`, card.description)}</p>
                 </article>
               ))}
@@ -47,7 +62,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <div className="container">
             {service.lists.map((list, listIndex) => (
               <article key={list.title} className="service-list-card">
-                <h3>{text(`${serviceBaseKey}.lists.${listIndex}.title`, list.title)}</h3>
+                <h3>{renderFirstWordBlue(text(`${serviceBaseKey}.lists.${listIndex}.title`, list.title))}</h3>
                 <ul>
                   {list.items.map((item, itemIndex) => (
                     <li key={item}>
@@ -64,9 +79,11 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
           <section className="service-legal">
             <div className="container">
               <h2>
-                {text(
-                  "servicePage.sections.legalAnimalServices",
-                  "Legal Information for Animal Services",
+                {renderFirstWordBlue(
+                  text(
+                    "servicePage.sections.legalAnimalServices",
+                    "Legal Information for Animal Services",
+                  ),
                 )}
               </h2>
             </div>
