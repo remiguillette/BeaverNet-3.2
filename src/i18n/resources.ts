@@ -45,8 +45,9 @@ export const resources = {
         items: {
           publicSafety: "BeaverPatch",
           francophoneServices: "BeaverDoc",
-          healthSafety: "must be determined",
+          healthSafety: "BeaverMap",
           animalFirstAid: "BeaverPaws",
+          beaverMto: "BeaverMTO",
         },
       },
     },
@@ -214,6 +215,12 @@ export const resources = {
         homeAria: "Home - BeaverNet-V3.2",
         logoAlt: "Stylized illustration of an orange beaver representing the company's visual identity",
         title: "BeaverNet-V3.2",
+      },
+      alert: {
+        title: "BREAK & ENTER IN PROGRESS",
+        code: "D12",
+        timestamp: "Friday, March 27, 2026 at 7:08 a.m.",
+        location: "AVON AVE - ALLIANCE AVE",
       },
       nav: {
         mainAria: "Main menu",
@@ -441,8 +448,9 @@ export const resources = {
         items: {
           publicSafety: "BeaverPatch",
           francophoneServices: "BeaverDoc",
-          healthSafety: "doit être déterminé",
+          healthSafety: "BeaverMap",
           animalFirstAid: "BeaverPaws",
+          beaverMto: "BeaverMTO",
         },
       },
     },
@@ -610,6 +618,12 @@ export const resources = {
         homeAria: "Accueil - BeaverNet-V3.2",
         logoAlt: "Illustration stylisée d'un castor orange représentant l'identité visuelle de l'entreprise",
         title: "BeaverNet-V3.2",
+      },
+      alert: {
+        title: "BREAK & ENTER IN PROGRESS",
+        code: "D12",
+        timestamp: "Friday, March 27, 2026 at 7:08 a.m.",
+        location: "AVON AVE - ALLIANCE AVE",
       },
       nav: {
         mainAria: "Menu principal",
