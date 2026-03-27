@@ -464,9 +464,8 @@ footer {
 
 .sector-card h3 {
   margin: 0;
-  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  font-size: 1rem;
   line-height: 1.4;
-  white-space: nowrap;
 }
 
 main {
@@ -564,8 +563,8 @@ main {
   }
 
   .header-nav {
-    width: 100%;
-    justify-content: flex-end;
+    width: auto;
+    justify-content: flex-start;
     margin-right: 0;
   }
 
