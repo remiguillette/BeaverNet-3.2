@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Phone, Mail } from "lucide-react";
+import { FaDiscord, FaInstagram, FaXTwitter } from "react-icons/fa6";
 import beaverLogo from "../../../assets/beaver.png";
 import { useTranslation } from "../../../contexts/TranslationContext";
 
@@ -125,13 +126,13 @@ export const Footer = () => {
               </h4>
               <div className="site-footer-social-links">
                 <a href="https://x.com/RGRA_ON" target="_blank" rel="noopener noreferrer" className="site-footer-social-link" style={{ color: accentOrange }} aria-label="X (Twitter)">
-                  <span className="site-footer-social-text">X</span>
+                  <FaXTwitter className="site-footer-social-icon" aria-hidden="true" />
                 </a>
                 <a href="https://www.instagram.com/rgra_on" target="_blank" rel="noopener noreferrer" className="site-footer-social-link" style={{ color: accentOrange }} aria-label="Instagram">
-                  <span className="site-footer-social-text">IG</span>
+                  <FaInstagram className="site-footer-social-icon" aria-hidden="true" />
                 </a>
                 <a href="https://discord.gg/qFbVDPCFz9" target="_blank" rel="noopener noreferrer" className="site-footer-social-link" style={{ color: accentOrange }} aria-label="Discord">
-                  <span className="site-footer-social-text">DC</span>
+                  <FaDiscord className="site-footer-social-icon" aria-hidden="true" />
                 </a>
               </div>
             </div>
