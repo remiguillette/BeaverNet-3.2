@@ -57,7 +57,7 @@ export const resources = {
     servicePage: {
       sections: {
         services: "Our services",
-        legalAnimalServices: "Legal Information for Animal Services",
+        legalAnimalServices: "Notice to the Public",
       },
       services: {
         publicSafety: {
@@ -163,38 +163,53 @@ export const resources = {
             "OHS recommendations remain subject to employer validation and obligations under applicable labour legislation.",
         },
         animalFirstAid: {
-          pageTitle: "Animal first aid services",
+          pageTitle: "Animal First Aid Services",
           intro:
-            "We provide training and guidance in animal first aid for professional, community, and family settings.",
+            "Rémi Guillette, RG Groupe, and Rémi Guillette Consulting are entities specializing in public safety, disaster management, and business continuity.",
           cards: [
             {
-              title: "Practical training",
+              title: "Nature of Services",
               description:
-                "Field-oriented workshops to respond quickly during animal emergencies.",
+                "The animal services offered fall exclusively within this operational framework and are intended to provide support during emergency responses, planned events, or exceptional situations.",
             },
             {
-              title: "Emergency protocols",
+              title: "No Veterinary Services",
               description:
-                "Creation of response guides adapted to pets and workplace environments.",
+                "Our organizations are not veterinary clinics and do not offer veterinary medicine services.",
             },
             {
-              title: "Prevention awareness",
+              title: "Professional Compliance",
               description:
-                "Best practices for handling, monitoring, and preventing common injuries.",
+                "Our staff are not registered professionals with the College of Veterinarians of Ontario and do not perform any acts reserved under applicable regulations.",
+            },
+            {
+              title: "Scope of Interventions",
+              description:
+                "These activities are carried out under contract, notably with institutional partners (e.g., SPCA), municipalities, or government agencies.",
+            },
+            {
+              title: "Training and Skills",
+              description:
+                "Service providers hold recognized training, including Canadian Red Cross certifications in animal first aid.",
+            },
+            {
+              title: "Access Restrictions",
+              description:
+                "The services described are offered exclusively on a contractual basis (B2B/institutional). No services are offered to the public or upon individual request.",
             },
           ],
           lists: [
             {
-              title: "Target audiences",
+              title: "Interventions may include, but are not limited to:",
               items: [
-                "Animal daycare and boarding facilities",
-                "Families with pets",
-                "Community workers",
+                "Basic stabilization and emergency first aid (including animal CPR)",
+                "Operational support during incidents or disasters",
+                "Logistical coordination in evacuation or recovery situations",
               ],
             },
           ],
           legalText:
-            "Animal first aid does not replace veterinary consultation and is provided as immediate support before clinical care.",
+            "For any emergency, medical situation, or concern regarding an animal, it is imperative to contact a licensed veterinarian or veterinary clinic.",
         },
       },
     },
@@ -317,7 +332,7 @@ export const resources = {
     servicePage: {
       sections: {
         services: "Nos services",
-        legalAnimalServices: "Information légale pour les services animaliers",
+        legalAnimalServices: "Avis au public",
       },
       services: {
         publicSafety: {
@@ -425,36 +440,51 @@ export const resources = {
         animalFirstAid: {
           pageTitle: "Services de premiers soins animaliers",
           intro:
-            "Nous offrons de la formation et de l'accompagnement en premiers soins animaliers pour les milieux professionnels, communautaires et familiaux.",
+            "Rémi Guillette, RG Groupe et Rémi Guillette Consulting sont des entités spécialisées en sécurité publique, gestion des catastrophes et continuité des activités.",
           cards: [
             {
-              title: "Formation pratique",
+              title: "Nature des services",
               description:
-                "Ateliers orientés terrain pour réagir rapidement en situation d'urgence animale.",
+                "Les services animaliers offerts s'inscrivent exclusivement dans ce cadre opérationnel et visent à fournir un soutien lors de réponses d'urgence, d'événements planifiés ou de situations exceptionnelles.",
             },
             {
-              title: "Protocoles d'urgence",
+              title: "Aucun service vétérinaire",
               description:
-                "Création de guides d'intervention adaptés aux animaux de compagnie et aux environnements de travail.",
+                "Nos organisations ne sont pas des cliniques vétérinaires et n'offrent pas de services de médecine vétérinaire.",
             },
             {
-              title: "Sensibilisation prévention",
+              title: "Conformité professionnelle",
               description:
-                "Bonnes pratiques de manipulation, de surveillance et de prévention des blessures courantes.",
+                "Notre personnel n'est pas composé de professionnels inscrits à l'Ordre des vétérinaires de l'Ontario et n'exécute aucun acte réservé en vertu des règlements applicables.",
+            },
+            {
+              title: "Portée des interventions",
+              description:
+                "Ces activités sont réalisées sous contrat, notamment avec des partenaires institutionnels (ex. SPA/SPCA), des municipalités ou des organismes gouvernementaux.",
+            },
+            {
+              title: "Formation et compétences",
+              description:
+                "Les intervenants détiennent des formations reconnues, incluant des certifications de la Croix-Rouge canadienne en premiers soins animaliers.",
+            },
+            {
+              title: "Restrictions d'accès",
+              description:
+                "Les services décrits sont offerts exclusivement sur une base contractuelle (B2B/institutionnelle). Aucun service n'est offert au public ni sur demande individuelle.",
             },
           ],
           lists: [
             {
-              title: "Publics visés",
+              title: "Les interventions peuvent inclure, sans s'y limiter :",
               items: [
-                "Garderies et pensions animalières",
-                "Familles avec animaux domestiques",
-                "Intervenants communautaires",
+                "Stabilisation de base et premiers soins d'urgence (incluant la RCR animale)",
+                "Soutien opérationnel lors d'incidents ou de catastrophes",
+                "Coordination logistique en situation d'évacuation ou de rétablissement",
               ],
             },
           ],
           legalText:
-            "Les premiers soins animaliers ne remplacent pas une consultation vétérinaire et sont offerts à titre de soutien immédiat avant la prise en charge clinique.",
+            "Pour toute urgence, situation médicale ou inquiétude concernant un animal, il est impératif de contacter un vétérinaire autorisé ou une clinique vétérinaire.",
         },
       },
     },

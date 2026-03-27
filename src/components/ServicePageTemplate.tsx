@@ -86,6 +86,7 @@ export default function ServicePageTemplate({ service }: ServicePageTemplateProp
                   ),
                 )}
               </h2>
+              <p>{text(`${serviceBaseKey}.legalText`, service.legalText)}</p>
             </div>
           </section>
         ) : null}
