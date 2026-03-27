@@ -1,5 +1,4 @@
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import { ContactForm } from "../components/contact/ContactForm";
 import { useTranslation } from "../contexts/TranslationContext";
 
@@ -77,7 +76,6 @@ export default function Contact() {
           </div>
         </div>
       </main>
-      <Footer />
     </>
   );
 }

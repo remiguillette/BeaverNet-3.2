@@ -1,5 +1,4 @@
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import { useTranslation } from "../contexts/TranslationContext";
 
 export default function About() {
@@ -16,7 +15,6 @@ export default function About() {
         <h1>{text("about.title", "About")}</h1>
         <p>{text("about.description", "Official website of Rémi Guillette Groupe.")}</p>
       </main>
-      <Footer />
     </>
   );
 }

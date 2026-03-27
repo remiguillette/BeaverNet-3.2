@@ -1,5 +1,4 @@
 import Header from "../components/layout/Header";
-import Footer from "../components/layout/Footer";
 import { useTranslation } from "../contexts/TranslationContext";
 
 type PrivacySection = {
@@ -190,7 +189,6 @@ export default function PrivacyPolicy() {
           </div>
         </section>
       </main>
-      <Footer />
     </>
   );
 }
