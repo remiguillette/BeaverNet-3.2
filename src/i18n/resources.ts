@@ -38,19 +38,15 @@ export const resources = {
     },
     home: {
       hero: {
-        titleLead: "Innovative",
-        titleAccent: "solutions for your business",
-        description:
-          "Specializing in business services, the Rémi Guillette Group offers a range of solutions tailored to your needs.",
+        title: "Innovative solutions for your business",
       },
       sectors: {
-        title: "Business sectors",
         viewAriaPrefix: "View",
         items: {
-          publicSafety: "Public safety consulting",
-          francophoneServices: "Francophone community services",
-          healthSafety: "Workplace health and safety services",
-          animalFirstAid: "Animal first aid services",
+          publicSafety: "BeaverPatch",
+          francophoneServices: "BeaverDoc",
+          healthSafety: "has determined",
+          animalFirstAid: "BeaverPaws",
         },
       },
     },
@@ -215,17 +211,12 @@ export const resources = {
     },
     header: {
       brand: {
-        homeAria: "Home - Rémi Guillette Group",
+        homeAria: "Home - BeaverNet-V3.2",
         logoAlt: "Stylized illustration of an orange beaver representing the company's visual identity",
-        remi: "Rémi",
-        guillette: "Guillette",
-        groupFr: "Groupe",
-        groupEn: "Group",
-        businessInfo: "Rémi Guillette Groupe Group is a bilingual Ontario business brand.",
+        title: "BeaverNet-V3.2",
       },
       nav: {
         mainAria: "Main menu",
-        ontarioPride: "Proud of Ontario",
         languageToggleAria: "Change language to French",
         languageToggleLabel: "EN",
       },
@@ -325,7 +316,6 @@ export const resources = {
             "Pages visited on our website",
             "Date and time of visit",
             "Session duration",
-            "Cookie and similar technology data",
           ],
         },
         {
@@ -348,7 +338,6 @@ export const resources = {
             "Explicit consent when submitting forms",
             "Implied consent when using our services",
             "Consent through acceptance of terms of use",
-            "Consent for cookies via our cookie banner",
           ],
         },
         {
@@ -378,13 +367,6 @@ export const resources = {
             "Staff training on data protection",
             "Regular security system updates",
             "Secure data backup",
-          ],
-        },
-        {
-          title: "Cookies and similar technologies",
-          body: [
-            "We use cookies to improve your experience on our website. These cookies may include session cookies, persistent cookies, and analytics cookies.",
-            "AWS also uses cookies for platform functionality. Please refer to AWS privacy policy for more information about their cookie usage.",
           ],
         },
         {
@@ -452,19 +434,15 @@ export const resources = {
     },
     home: {
       hero: {
-        titleLead: "Solutions",
-        titleAccent: "innovantes pour votre entreprise",
-        description:
-          "Spécialiste en services d'entreprise, le Groupe Rémi Guillette offre une gamme de solutions adaptées à vos besoins.",
+        title: "Solutions innovantes pour votre entreprise",
       },
       sectors: {
-        title: "Secteurs d'activité",
         viewAriaPrefix: "Voir",
         items: {
-          publicSafety: "Cabinet-conseil en sécurité publique",
-          francophoneServices: "Services communautaires francophones",
-          healthSafety: "Services en santé et sécurité au travail (SST)",
-          animalFirstAid: "Services de premiers soins animaliers",
+          publicSafety: "BeaverPatch",
+          francophoneServices: "BeaverDoc",
+          healthSafety: "a été déterminé",
+          animalFirstAid: "BeaverPaws",
         },
       },
     },
@@ -629,17 +607,12 @@ export const resources = {
     },
     header: {
       brand: {
-        homeAria: "Accueil - Groupe Rémi Guillette",
+        homeAria: "Accueil - BeaverNet-V3.2",
         logoAlt: "Illustration stylisée d'un castor orange représentant l'identité visuelle de l'entreprise",
-        remi: "Rémi",
-        guillette: "Guillette",
-        groupFr: "Groupe",
-        groupEn: "Group",
-        businessInfo: "Rémi Guillette Groupe Group est une marque d'affaires bilingue de l'Ontario.",
+        title: "BeaverNet-V3.2",
       },
       nav: {
         mainAria: "Menu principal",
-        ontarioPride: "Fier de l'Ontario",
         languageToggleAria: "Changer la langue en anglais",
         languageToggleLabel: "FR",
       },
@@ -739,7 +712,6 @@ export const resources = {
             "Pages visitées sur notre site web",
             "Date et heure de la visite",
             "Durée de la session",
-            "Données des cookies et technologies similaires",
           ],
         },
         {
@@ -762,7 +734,6 @@ export const resources = {
             "Consentement explicite lors de la soumission de formulaires",
             "Consentement implicite lors de l’utilisation de nos services",
             "Consentement par l’acceptation des conditions d’utilisation",
-            "Consentement pour les cookies via notre bannière de cookies",
           ],
         },
         {
@@ -792,13 +763,6 @@ export const resources = {
             "Formation du personnel sur la protection des données",
             "Mises à jour régulières des systèmes de sécurité",
             "Sauvegarde sécurisée des données",
-          ],
-        },
-        {
-          title: "Cookies et technologies similaires",
-          body: [
-            "Nous utilisons des cookies pour améliorer votre expérience sur notre site web. Ces cookies peuvent inclure des cookies de session, des cookies persistants et des cookies d’analyse.",
-            "AWS utilise également des cookies pour les fonctionnalités de la plateforme. Veuillez consulter la politique de confidentialité d’AWS pour plus d’informations sur leur utilisation des cookies.",
           ],
         },
         {

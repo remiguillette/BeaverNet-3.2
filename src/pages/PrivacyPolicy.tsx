@@ -41,7 +41,6 @@ const sections: PrivacySection[] = [
       "Pages visited on our website",
       "Date and time of visit",
       "Session duration",
-      "Cookie and similar technology data",
     ],
   },
   {
@@ -64,7 +63,6 @@ const sections: PrivacySection[] = [
       "Explicit consent when submitting forms",
       "Implied consent when using our services",
       "Consent through acceptance of terms of use",
-      "Consent for cookies via our cookie banner",
     ],
   },
   {
@@ -94,13 +92,6 @@ const sections: PrivacySection[] = [
       "Staff training on data protection",
       "Regular security system updates",
       "Secure data backup",
-    ],
-  },
-  {
-    title: "Cookies and similar technologies",
-    body: [
-      "We use cookies to improve your experience on our website. These cookies may include session cookies, persistent cookies, and analytics cookies.",
-      "AWS also uses cookies for platform functionality. Please refer to AWS privacy policy for more information about their cookie usage.",
     ],
   },
   {

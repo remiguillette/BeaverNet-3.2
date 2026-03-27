@@ -32,25 +32,13 @@ export default function Home() {
         <section className="hero">
           <div className="container">
             <h1>
-              <span className="accent-blue">{text("home.hero.titleLead", "Innovative")}</span>{" "}
-              <span className="accent-orange">{text("home.hero.titleAccent", "solutions for your business")}</span>
+              {renderFirstWordBlue(text("home.hero.title", "Innovative solutions for your business"))}
             </h1>
-
-            <p className="hero-text">
-              <span className="accent-orange">
-                {text(
-                  "home.hero.description",
-                  "Specializing in business services, the Rémi Guillette Group offers a range of solutions tailored to your needs.",
-                )}
-              </span>
-            </p>
           </div>
         </section>
 
         <section className="sectors">
           <div className="container">
-            <h2>{renderFirstWordBlue(text("home.sectors.title", "Business sectors"))}</h2>
-
             <div className="card-grid">
               {servicePages.map((servicePage) => {
                 const Icon = servicePage.homeIcon;

@@ -27,17 +27,11 @@ export const Header = () => {
           logoSrc={beaverLogo}
           homeAriaLabel={t("header.brand.homeAria")}
           logoAlt={t("header.brand.logoAlt")}
-          remi={t("header.brand.remi")}
-          guillette={t("header.brand.guillette")}
-          groupFr={t("header.brand.groupFr")}
-          groupEn={t("header.brand.groupEn")}
-          businessInfo={t("header.brand.businessInfo")}
+          title={t("header.brand.title")}
         />
 
         <HeaderNav
           navAriaLabel={t("header.nav.mainAria")}
-          ontarioText={t("header.nav.ontarioPride")}
-          ontarioTextLang={language}
           toggleAriaLabel={t("header.nav.languageToggleAria")}
           toggleLabel={t("header.nav.languageToggleLabel")}
           buttonRef={buttonRef}
