@@ -25,10 +25,10 @@ export type ServicePageData = {
 export const servicePages: ServicePageData[] = [
   {
     key: "publicSafety",
-    path: "/public-safety",
-    homeTitle: "Cabinet-conseil en sécurité publique",
+    path: "/BeaverPatch",
+    homeTitle: "BeaverPatch",
     homeIcon: Shield,
-    pageTitle: "Cabinet-conseil en sécurité publique",
+    pageTitle: "BeaverPatch",
     intro:
       "Nous accompagnons les organisations publiques et privées dans l'analyse des risques, la conformité et la mise en place de stratégies durables.",
     cards: [

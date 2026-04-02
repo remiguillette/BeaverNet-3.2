@@ -116,7 +116,7 @@ export function ContactForm() {
             required
           >
             <option value="">{text("contact.form.selectService", "Select a service")}</option>
-            <option value="public-safety">{text("contact.form.services.publicSafety", "Public Safety")}</option>
+            <option value="beaverpatch">{text("contact.form.services.publicSafety", "Public Safety")}</option>
             <option value="francophone">{text("contact.form.services.francophone", "Francophone Services")}</option>
             <option value="health-safety">{text("contact.form.services.healthSafety", "Health & Safety")}</option>
             <option value="animal-aid">{text("contact.form.services.animalAid", "Animal First Aid")}</option>
