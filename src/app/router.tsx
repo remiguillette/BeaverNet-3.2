@@ -11,7 +11,7 @@ export const router = createBrowserRouter([
   { path: "/about", element: <About /> },
   { path: "/contact", element: <Contact /> },
   { path: "/privacy-policy", element: <PrivacyPolicy /> },
-  { path: "/public-safety", element: <ServicePage serviceKey="publicSafety" /> },
+  { path: "/BeaverPatch", element: <ServicePage serviceKey="publicSafety" /> },
   {
     path: "/francophone-services",
     element: <ServicePage serviceKey="francophoneServices" />,
