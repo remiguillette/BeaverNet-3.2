@@ -923,3 +923,86 @@ main {
   padding: 0.78rem 1rem;
   font-size: 1rem;
 }
+
+.beaverpatch-form-page {
+  background: radial-gradient(circle at top right, rgba(13, 110, 253, 0.12), transparent 45%), #000;
+}
+
+.beaverpatch-form-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.beaverpatch-form {
+  display: grid;
+  gap: 1rem;
+}
+
+.beaverpatch-form-header h2,
+.beaverpatch-summary h2,
+.beaverpatch-dialog h2 {
+  margin: 0 0 0.5rem;
+}
+
+.beaverpatch-form-header p,
+.beaverpatch-summary p,
+.beaverpatch-dialog p,
+.beaverpatch-status {
+  margin: 0;
+  color: #f89422;
+}
+
+.beaverpatch-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.beaverpatch-tools,
+.beaverpatch-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.beaverpatch-summary ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: #f89422;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.beaverpatch-dialog-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 50;
+}
+
+.beaverpatch-dialog {
+  width: min(580px, 100%);
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .beaverpatch-grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .beaverpatch-grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1060px) {
+  .beaverpatch-form-layout {
+    grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr);
+    align-items: start;
+  }
+}

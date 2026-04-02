@@ -1,8 +1,7 @@
 import NotFound from "./NotFound";
 import ServicePageTemplate from "../components/ServicePageTemplate";
 import { servicePagesByKey } from "../data/servicePages";
-import CallCardPage from "../modules/call-cards/CallCardPage";
-import { beaverPatchCalls, beaverPatchConfig } from "../data/call-cards/beaverPatch";
+import BeaverPatchFormPage from "../modules/beaver-patch/BeaverPatchFormPage";
 
 type ServicePageProps = {
   serviceKey: string;
@@ -16,7 +15,7 @@ export default function ServicePage({ serviceKey }: ServicePageProps) {
   }
 
   if (serviceKey === "publicSafety") {
-    return <CallCardPage config={beaverPatchConfig} calls={beaverPatchCalls} />;
+    return <BeaverPatchFormPage />;
   }
 
   return <ServicePageTemplate service={service} />;
