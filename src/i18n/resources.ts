@@ -274,6 +274,107 @@ export const resources = {
         },
       },
     },
+    beaverPatch: {
+      form: {
+        pageTitle: {
+          primary: "BeaverPatch",
+          secondary: "Operational Form",
+        },
+        pageDescription:
+          "Operational intake form for new files. Complete all required sections and attach secondary records as needed.",
+        sections: {
+          primaryContact: {
+            title: "Caller Information",
+            helper: "Record the main contact details for follow-up and identity verification.",
+          },
+          address: {
+            title: "Address",
+            helper: "Capture the incident location in a format suitable for dispatch and reporting.",
+          },
+          incident: {
+            title: "Incident Details",
+            helper: "Set priority and summarize what is currently known from the first report.",
+          },
+        },
+        fields: {
+          firstName: { label: "First name", placeholder: "Enter first name" },
+          middleName: { label: "Middle name", placeholder: "Enter middle name" },
+          lastName: { label: "Last name", placeholder: "Enter last name" },
+          details: { label: "Details", placeholder: "Add operational notes for the contact" },
+          addressLine1: { label: "Address line 1", placeholder: "Street and civic number" },
+          addressLine2: { label: "Address line 2", placeholder: "Apartment, unit, or access code" },
+          city: { label: "City", placeholder: "Enter city" },
+          province: { label: "Province", placeholder: "Enter province/state" },
+          postalCode: { label: "Postal code", placeholder: "Enter postal code" },
+          priority: {
+            label: "Priority",
+            options: {
+              low: "Low",
+              medium: "Medium",
+              high: "High",
+            },
+          },
+          incidentSummary: {
+            label: "Incident summary",
+            placeholder: "Summarize the incident context and immediate risks",
+          },
+        },
+        buttons: {
+          reset: "Reset form",
+          submit: "Save file",
+        },
+        status: {
+          idle: "Draft ready. No changes saved yet.",
+          saved: "File saved successfully.",
+          reset: "Form reset completed.",
+        },
+        summary: {
+          title: "File Snapshot",
+          helper: "Live operational overview of captured values.",
+          primaryContact: "Primary contact",
+          address: "Address",
+          driver: "Driver",
+          vehicle: "Vehicle",
+        },
+        tools: {
+          driver: {
+            open: "Open driver record",
+            title: "Driver",
+            helper: "Add or update driver data linked to this file.",
+            fields: {
+              surname: { label: "Surname", placeholder: "Enter surname" },
+              license: { label: "License", placeholder: "Enter driver license number" },
+              dob: { label: "Date of birth", placeholder: "Select date of birth" },
+            },
+          },
+          vehicle: {
+            open: "Open vehicle record",
+            title: "Vehicle",
+            helper: "Add or update the involved vehicle information.",
+            fields: {
+              plate: { label: "Plate", placeholder: "Enter plate number" },
+              vin: { label: "VIN", placeholder: "Enter VIN" },
+              owner: { label: "Owner", placeholder: "Enter vehicle owner" },
+            },
+          },
+        },
+        dialogs: {
+          close: "Close",
+          confirm: "Confirm",
+          resetConfirm: "Do you want to clear the current form and related records?",
+        },
+        empty: {
+          primaryContact: "No contact recorded",
+          address: "No address recorded",
+          driver: "No driver attached",
+          vehicle: "No vehicle attached",
+        },
+        validation: {
+          required: "Please complete all required fields.",
+          summaryMin: "Incident summary must contain at least 10 characters.",
+        },
+      },
+    },
     about: {
       title: "About",
       description: "Official website of Rémi Guillette Groupe.",
@@ -677,6 +778,107 @@ export const resources = {
         },
       },
     },
+    beaverPatch: {
+      form: {
+        pageTitle: {
+          primary: "BeaverPatch",
+          secondary: "Formulaire Opérationnel",
+        },
+        pageDescription:
+          "Formulaire opérationnel de prise en charge des nouveaux dossiers. Complétez les sections obligatoires et joignez les dossiers secondaires au besoin.",
+        sections: {
+          primaryContact: {
+            title: "Informations appelant",
+            helper: "Consignez les coordonnées du contact principal pour le suivi et la vérification d'identité.",
+          },
+          address: {
+            title: "📍 Adresse",
+            helper: "Saisissez le lieu de l'intervention dans un format prêt pour la répartition et les rapports.",
+          },
+          incident: {
+            title: "Détails de l'événement",
+            helper: "Définissez la priorité et résumez les faits connus du premier signalement.",
+          },
+        },
+        fields: {
+          firstName: { label: "firstName", placeholder: "Entrer le prénom" },
+          middleName: { label: "middleName", placeholder: "Entrer le deuxième prénom" },
+          lastName: { label: "lastName", placeholder: "Entrer le nom de famille" },
+          details: { label: "details", placeholder: "Ajouter des notes opérationnelles" },
+          addressLine1: { label: "addressLine1", placeholder: "Rue et numéro civique" },
+          addressLine2: { label: "addressLine2", placeholder: "Appartement, unité ou code d'accès" },
+          city: { label: "city", placeholder: "Entrer la ville" },
+          province: { label: "province", placeholder: "Entrer la province" },
+          postalCode: { label: "postalCode", placeholder: "Entrer le code postal" },
+          priority: {
+            label: "Priorité",
+            options: {
+              low: "Faible",
+              medium: "Moyenne",
+              high: "Élevée",
+            },
+          },
+          incidentSummary: {
+            label: "Résumé de l'événement",
+            placeholder: "Résumer le contexte et les risques immédiats",
+          },
+        },
+        buttons: {
+          reset: "Réinitialiser",
+          submit: "Enregistrer le dossier",
+        },
+        status: {
+          idle: "Brouillon prêt. Aucun changement enregistré.",
+          saved: "Dossier enregistré avec succès.",
+          reset: "Réinitialisation terminée.",
+        },
+        summary: {
+          title: "Aperçu du dossier",
+          helper: "Vue opérationnelle en temps réel des données capturées.",
+          primaryContact: "Contact principal",
+          address: "Adresse",
+          driver: "Conducteur",
+          vehicle: "Véhicule",
+        },
+        tools: {
+          driver: {
+            open: "Ouvrir Conducteur",
+            title: "Conducteur",
+            helper: "Ajouter ou modifier les données du conducteur lié à ce dossier.",
+            fields: {
+              surname: { label: "surname", placeholder: "Entrer le nom" },
+              license: { label: "license", placeholder: "Entrer le numéro de permis" },
+              dob: { label: "dob", placeholder: "Sélectionner la date de naissance" },
+            },
+          },
+          vehicle: {
+            open: "Ouvrir Véhicule",
+            title: "Véhicule",
+            helper: "Ajouter ou modifier les informations du véhicule impliqué.",
+            fields: {
+              plate: { label: "plate", placeholder: "Entrer la plaque" },
+              vin: { label: "vin", placeholder: "Entrer le NIV" },
+              owner: { label: "owner", placeholder: "Entrer le propriétaire" },
+            },
+          },
+        },
+        dialogs: {
+          close: "Fermer",
+          confirm: "Confirmer",
+          resetConfirm: "Voulez-vous effacer le formulaire actuel et les dossiers liés?",
+        },
+        empty: {
+          primaryContact: "Aucun contact enregistré",
+          address: "Aucune adresse enregistrée",
+          driver: "Aucun conducteur lié",
+          vehicle: "Aucun véhicule lié",
+        },
+        validation: {
+          required: "Veuillez remplir tous les champs obligatoires.",
+          summaryMin: "Le résumé doit contenir au moins 10 caractères.",
+        },
+      },
+    },
     about: {
       title: "À propos",
       description: "Site officiel du Groupe Rémi Guillette.",
@@ -784,16 +986,16 @@ export const resources = {
           body: [
             "En vertu de la LPRPDE, vous avez le droit de :",
             "Accéder à vos renseignements personnels",
-            "Corriger des renseignements inexacts",
-            "Retirer votre consentement (sous réserve de restrictions légales)",
+            "Corriger les informations inexactes",
+            "Retirer votre consentement (sous réserve des restrictions légales)",
             "Demander la suppression de vos données",
             "Déposer une plainte auprès du Commissariat à la protection de la vie privée du Canada",
           ],
         },
         {
-          title: "Qui contacter en cas de questions?",
+          title: "Qui contacter si j’ai des questions?",
           body: [
-            "Pour toute question sur cette politique de confidentialité ou vos renseignements personnels, contactez-nous :",
+            "Pour toute question concernant cette politique de confidentialité ou vos renseignements personnels, contactez-nous :",
             "info@remiguillette.ca",
           ],
         },
@@ -801,7 +1003,7 @@ export const resources = {
           title: "Modifications de cette politique",
           body: [
             "Nous nous réservons le droit de modifier cette politique de confidentialité en tout temps.",
-            "Nous vous informerons des changements importants au moyen d’un avis sur notre site web ou par courriel si vous avez fourni votre adresse courriel.",
+            "Nous vous informerons des changements importants par avis sur notre site web ou par courriel si vous nous avez fourni votre adresse.",
           ],
         },
       ],
@@ -809,4 +1011,4 @@ export const resources = {
   },
 } as const;
 
-export type TranslationResources = typeof resources;
+export type TranslationResources = (typeof resources)[Language];
