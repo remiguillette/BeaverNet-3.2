@@ -226,6 +226,8 @@ export const resources = {
         mainAria: "Main menu",
         languageToggleAria: "Change language to French",
         languageToggleLabel: "EN",
+        enterFullscreenAria: "Enter fullscreen",
+        exitFullscreenAria: "Exit fullscreen",
       },
     },
     contact: {
@@ -753,6 +755,8 @@ export const resources = {
         mainAria: "Menu principal",
         languageToggleAria: "Changer la langue en anglais",
         languageToggleLabel: "FR",
+        enterFullscreenAria: "Passer en plein écran",
+        exitFullscreenAria: "Quitter le plein écran",
       },
     },
     contact: {
