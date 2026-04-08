@@ -295,6 +295,17 @@ export const resources = {
             title: "Incident Details",
             helper: "Set priority and summarize what is currently known from the first report.",
           },
+          review: {
+            title: "Validation & Summary",
+            helper: "Review all values before saving this file.",
+          },
+        },
+        steps: {
+          progress: "Step",
+          step1: "Main Contact",
+          step2: "Address/Location",
+          step3: "Incident",
+          step4: "Validation/Summary",
         },
         fields: {
           firstName: { label: "First name", placeholder: "Enter first name" },
@@ -321,6 +332,8 @@ export const resources = {
         },
         buttons: {
           reset: "Reset form",
+          back: "Back",
+          next: "Next",
           submit: "Save file",
         },
         status: {
@@ -333,6 +346,7 @@ export const resources = {
           helper: "Live operational overview of captured values.",
           primaryContact: "Primary contact",
           address: "Address",
+          incident: "Incident",
           driver: "Driver",
           vehicle: "Vehicle",
         },
@@ -366,11 +380,15 @@ export const resources = {
         empty: {
           primaryContact: "No contact recorded",
           address: "No address recorded",
+          incident: "No incident summary recorded",
           driver: "No driver attached",
           vehicle: "No vehicle attached",
         },
         validation: {
           required: "Please complete all required fields.",
+          contactRequired: "Please complete all required contact fields.",
+          addressRequired: "Please complete all required address fields.",
+          incidentRequired: "Please provide an incident summary before continuing.",
           summaryMin: "Incident summary must contain at least 10 characters.",
         },
       },
@@ -799,6 +817,17 @@ export const resources = {
             title: "Détails de l'événement",
             helper: "Définissez la priorité et résumez les faits connus du premier signalement.",
           },
+          review: {
+            title: "Validation et résumé",
+            helper: "Vérifiez toutes les données avant l'enregistrement final.",
+          },
+        },
+        steps: {
+          progress: "Étape",
+          step1: "Contact principal",
+          step2: "Adresse / lieu",
+          step3: "Événement",
+          step4: "Validation / résumé",
         },
         fields: {
           firstName: { label: "firstName", placeholder: "Entrer le prénom" },
@@ -825,6 +854,8 @@ export const resources = {
         },
         buttons: {
           reset: "Réinitialiser",
+          back: "Retour",
+          next: "Suivant",
           submit: "Enregistrer le dossier",
         },
         status: {
@@ -837,6 +868,7 @@ export const resources = {
           helper: "Vue opérationnelle en temps réel des données capturées.",
           primaryContact: "Contact principal",
           address: "Adresse",
+          incident: "Événement",
           driver: "Conducteur",
           vehicle: "Véhicule",
         },
@@ -870,11 +902,15 @@ export const resources = {
         empty: {
           primaryContact: "Aucun contact enregistré",
           address: "Aucune adresse enregistrée",
+          incident: "Aucun résumé d'événement",
           driver: "Aucun conducteur lié",
           vehicle: "Aucun véhicule lié",
         },
         validation: {
           required: "Veuillez remplir tous les champs obligatoires.",
+          contactRequired: "Veuillez remplir les champs obligatoires du contact.",
+          addressRequired: "Veuillez remplir les champs obligatoires de l'adresse.",
+          incidentRequired: "Veuillez ajouter un résumé de l'événement avant de continuer.",
           summaryMin: "Le résumé doit contenir au moins 10 caractères.",
         },
       },

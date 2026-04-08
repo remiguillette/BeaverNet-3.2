@@ -939,6 +939,33 @@ main {
   gap: 1rem;
 }
 
+
+.beaverpatch-stepper {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.beaverpatch-stepper-label {
+  margin: 0;
+  color: #7ac5ff;
+  font-weight: 600;
+}
+
+.beaverpatch-progress {
+  height: 0.45rem;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.beaverpatch-progress-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #0d6efd, #f89422);
+  transition: width 0.2s ease;
+}
+
 .beaverpatch-form-header h2,
 .beaverpatch-summary h2,
 .beaverpatch-dialog h2 {
@@ -966,6 +993,15 @@ main {
 }
 
 .beaverpatch-summary ul {
+  margin: 1rem 0 0;
+  padding-left: 1.1rem;
+  color: #f89422;
+  display: grid;
+  gap: 0.5rem;
+}
+
+
+.beaverpatch-review ul {
   margin: 1rem 0 0;
   padding-left: 1.1rem;
   color: #f89422;
