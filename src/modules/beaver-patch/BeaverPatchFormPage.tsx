@@ -202,16 +202,6 @@ export default function BeaverPatchFormPage() {
     <>
       <Header />
       <main className="service-page beaverpatch-form-page">
-        <section className="service-hero">
-          <div className="container">
-            <h1>
-              <span className="accent-blue">{t("beaverPatch.form.pageTitle.primary")}</span>{" "}
-              <span className="accent-orange">{t("beaverPatch.form.pageTitle.secondary")}</span>
-            </h1>
-            <p>{t("beaverPatch.form.pageDescription")}</p>
-          </div>
-        </section>
-
         <section className="service-section">
           <div className="container beaverpatch-form-layout">
             <form className="service-detail-card beaverpatch-form" onSubmit={handleSubmit}>
@@ -452,15 +442,30 @@ export default function BeaverPatchFormPage() {
 
             <aside className="service-detail-card beaverpatch-summary">
               <h2>
-                <span className="accent-orange">{t("beaverPatch.form.summary.title")}</span>
+                <span className="accent-orange">{t("beaverPatch.form.addPanel.title")}</span>
               </h2>
-              <p>{t("beaverPatch.form.summary.helper")}</p>
+              <p>{t("beaverPatch.form.addPanel.helper")}</p>
               <ul>
-                {summaryItems.map((item) => (
-                  <li key={item.label}>
-                    <strong>{item.label}:</strong> {item.value}
-                  </li>
-                ))}
+                <li>
+                  <strong>{t("beaverPatch.form.addPanel.fields.callId.label")}:</strong>{" "}
+                  {t("beaverPatch.form.addPanel.fields.callId.value")}
+                </li>
+                <li>
+                  <strong>{t("beaverPatch.form.addPanel.fields.channel.label")}:</strong>{" "}
+                  {t("beaverPatch.form.addPanel.fields.channel.value")}
+                </li>
+                <li>
+                  <strong>{t("beaverPatch.form.addPanel.fields.queue.label")}:</strong>{" "}
+                  {t("beaverPatch.form.addPanel.fields.queue.value")}
+                </li>
+                <li>
+                  <strong>{t("beaverPatch.form.addPanel.fields.status.label")}:</strong>{" "}
+                  {t("beaverPatch.form.addPanel.fields.status.value")}
+                </li>
+                <li>
+                  <strong>{t("beaverPatch.form.addPanel.fields.assignee.label")}:</strong>{" "}
+                  {t("beaverPatch.form.addPanel.fields.assignee.value")}
+                </li>
               </ul>
             </aside>
           </div>

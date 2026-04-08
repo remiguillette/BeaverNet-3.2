@@ -276,12 +276,6 @@ export const resources = {
     },
     beaverPatch: {
       form: {
-        pageTitle: {
-          primary: "BeaverPatch",
-          secondary: "Operational Form",
-        },
-        pageDescription:
-          "Operational intake form for new files. Complete all required sections and attach secondary records as needed.",
         sections: {
           primaryContact: {
             title: "Caller Information",
@@ -349,6 +343,17 @@ export const resources = {
           incident: "Incident",
           driver: "Driver",
           vehicle: "Vehicle",
+        },
+        addPanel: {
+          title: "Active call VoIP EXAMPLE",
+          helper: "Mockup add key-value panel.",
+          fields: {
+            callId: { label: "Call ID", value: "VOIP-2026-00017" },
+            channel: { label: "Channel", value: "SIP / Inbound" },
+            queue: { label: "Queue", value: "Operations Priority" },
+            status: { label: "Status", value: "Connected (00:03:42)" },
+            assignee: { label: "Assigned unit", value: "Dispatch Alpha-2" },
+          },
         },
         tools: {
           driver: {
@@ -798,12 +803,6 @@ export const resources = {
     },
     beaverPatch: {
       form: {
-        pageTitle: {
-          primary: "BeaverPatch",
-          secondary: "Formulaire Opérationnel",
-        },
-        pageDescription:
-          "Formulaire opérationnel de prise en charge des nouveaux dossiers. Complétez les sections obligatoires et joignez les dossiers secondaires au besoin.",
         sections: {
           primaryContact: {
             title: "Informations appelant",
@@ -871,6 +870,17 @@ export const resources = {
           incident: "Événement",
           driver: "Conducteur",
           vehicle: "Véhicule",
+        },
+        addPanel: {
+          title: "Appel actif VoIP EXEMPLE",
+          helper: "Panneau maquette de clés-valeurs d'ajout.",
+          fields: {
+            callId: { label: "ID d'appel", value: "VOIP-2026-00017" },
+            channel: { label: "Canal", value: "SIP / Entrant" },
+            queue: { label: "File", value: "Priorité opérations" },
+            status: { label: "Statut", value: "Connecté (00:03:42)" },
+            assignee: { label: "Unité assignée", value: "Répartition Alpha-2" },
+          },
         },
         tools: {
           driver: {
